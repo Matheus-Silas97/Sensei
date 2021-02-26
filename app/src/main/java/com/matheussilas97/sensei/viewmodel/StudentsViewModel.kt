@@ -1,4 +1,6 @@
 package com.matheussilas97.sensei.viewmodel
 
-class StudentsViewModel {
+import androidx.lifecycle.ViewModel
+
+class StudentsViewModel : ViewModel(){
 }

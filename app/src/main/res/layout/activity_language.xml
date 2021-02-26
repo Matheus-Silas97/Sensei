@@ -7,6 +7,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_color"
         tools:context=".view.activity.LanguageActivity">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -38,20 +39,29 @@
             app:layout_constraintTop_toBottomOf="@id/app_bar">
 
             <RadioButton
+                android:id="@+id/radio_brazil"
                 android:layout_width="wrap_content"
+                android:drawableEnd="@drawable/ic_brasil"
                 android:layout_height="wrap_content" />
 
             <RadioButton
+                android:id="@+id/radio_usa"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableEnd="@drawable/ic_usa"
                 android:layout_height="50dp" />
 
             <RadioButton
+                android:id="@+id/radio_spain"
                 android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawableEnd="@drawable/ic_espanha"
                 android:layout_height="wrap_content" />
 
         </RadioGroup>
 
         <Button
+            android:id="@+id/btn_change_language"
             style="@style/button_theme"
             android:layout_width="wrap_content"
             android:layout_marginTop="30dp"

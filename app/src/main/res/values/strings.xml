@@ -1,7 +1,21 @@
 <resources>
     <string name="app_name">Sensei</string>
     <string name="chamada">Chamada</string>
+    <string name="home">Home</string>
     <string name="groups">Turmas</string>
     <string name="settings">Configurações</string>
     <string name="students">Alunos</string>
+
+
+    <string name="language_english">Language changed successfully!</string>
+    <string name="language_portuguese">Idioma alterado com sucesso!</string>
+    <string name="language_spanish">¡El idioma cambió correctamente!</string>
+    <string name="language_selected">Selecione um idioma</string>
+    <string name="change_language">Alterar idioma</string>
+    <string name="change_name">Alterar nome</string>
+    <string name="reset_all">Resetar aplicação</string>
+    <string name="add_group">Adicionar grupo</string>
+    <string name="group_name">Nome do turma</string>
+    <string name="add">Adicionar</string>
+
 </resources>

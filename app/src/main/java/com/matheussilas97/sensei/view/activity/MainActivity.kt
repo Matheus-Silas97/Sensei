@@ -3,6 +3,8 @@ package com.matheussilas97.sensei.view.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityMainBinding
 
@@ -12,25 +14,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(binding.root)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        binding.btnChamada.setOnClickListener {
-            startActivity(Intent(this, ChamadaActivity::class.java))
-        }
+        val naviController = findNavController(R.id.nav_host)
 
-        binding.btnStudents.setOnClickListener {
-            startActivity(Intent(this, StudentActivity::class.java))
-        }
+        binding.bottomNavigationView.setupWithNavController(naviController)
 
-        binding.btnClass.setOnClickListener {
-            startActivity(Intent(this, ClassActivity::class.java))
-        }
-
-        binding.btnSettings.setOnClickListener {
-            startActivity(Intent(this, SettingsActivity::class.java))
-        }
 
 
     }
