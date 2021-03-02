@@ -7,4 +7,6 @@ object Constants {
     const val ENGLISH = "english"
     const val SPANISH = "spanish"
 
+    const val GROUP_NAME = "group_name"
+
 }

@@ -17,5 +17,13 @@
     <string name="add_group">Adicionar grupo</string>
     <string name="group_name">Nome do turma</string>
     <string name="add">Adicionar</string>
+    <string name="delete_group_message">Deseja excluir o grupo</string>
+
+
+    <string name="empty_name_group">Preencha o campo nome do grupo</string>
+
+    <string name="click_button_plus">Clique no botão de + para adicionar um novo grupo</string>
+    <string name="delete">Excluir</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

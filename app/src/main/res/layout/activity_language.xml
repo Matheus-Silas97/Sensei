@@ -28,44 +28,52 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-
-        <RadioGroup
-            android:id="@+id/radio_group_language"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="50dp"
+            android:padding="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/app_bar">
 
-            <RadioButton
-                android:id="@+id/radio_brazil"
-                android:layout_width="wrap_content"
-                android:drawableEnd="@drawable/ic_brasil"
-                android:layout_height="wrap_content" />
 
-            <RadioButton
-                android:id="@+id/radio_usa"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
-                android:drawableEnd="@drawable/ic_usa"
-                android:layout_height="50dp" />
+            <RadioGroup
+                android:id="@+id/radio_group_language"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_card"
+                android:padding="20dp">
 
-            <RadioButton
-                android:id="@+id/radio_spain"
-                android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
-                android:drawableEnd="@drawable/ic_espanha"
-                android:layout_height="wrap_content" />
+                <RadioButton
+                    android:id="@+id/radio_brazil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_brasil" />
 
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/radio_usa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/ic_usa" />
+
+                <RadioButton
+                    android:id="@+id/radio_spain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:drawableEnd="@drawable/ic_espanha" />
+
+            </RadioGroup>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_change_language"
             style="@style/button_theme"
             android:layout_width="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="Alterar Linguagem"
             android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"

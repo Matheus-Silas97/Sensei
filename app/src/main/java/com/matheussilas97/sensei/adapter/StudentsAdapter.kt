@@ -1,26 +1,46 @@
 package com.matheussilas97.sensei.adapter
 
 import android.content.Context
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.matheussilas97.sensei.database.model.StudentsModel
+import com.matheussilas97.sensei.databinding.ItemStudentsBinding
 
-class StudentsAdapter(private val context: Context,private val list: List<StudentsModel> ):
+class StudentsAdapter(private val context: Context, private val list: List<StudentsModel>) :
     RecyclerView.Adapter<StudentsAdapter.StudentsViewHolder>() {
 
-    inner class StudentsViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
-
+    inner class StudentsViewHolder(binding: ItemStudentsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        val layout = binding.layout
+        val name = binding.nameStudents
+        val grade = binding.gradeStudents
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StudentsViewHolder {
-        TODO("Not yet implemented")
+        val binding = ItemStudentsBinding.inflate(LayoutInflater.from(context), parent, false)
+        return StudentsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: StudentsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.name.text = list[position].name
+        holder.grade.text = list[position].grade
+
+        holder.layout.setOnClickListener {
+            onItemClickLister?.onClick(list[position].id)
+        }
     }
 
     override fun getItemCount(): Int = list.size
+
+    interface OnItemClickListener {
+        fun onClick(id: Int)
+    }
+
+    private var onItemClickLister: OnItemClickListener? = null
+
+    fun addOnItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickLister = onItemClickListener
+    }
 }

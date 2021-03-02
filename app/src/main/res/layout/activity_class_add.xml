@@ -51,6 +51,7 @@
                 <EditText
                     android:id="@+id/edit_group_name"
                     android:layout_width="match_parent"
+                    android:imeOptions="actionDone"
                     android:layout_height="wrap_content" />
 
 

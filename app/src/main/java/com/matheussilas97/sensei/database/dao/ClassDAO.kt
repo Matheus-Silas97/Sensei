@@ -21,5 +21,8 @@ interface ClassDAO {
     @Query("DELETE FROM groups")
     fun deleteAllGroups(): Int
 
+    @Query("SELECT * FROM groups WHERE id = :id")
+    fun load(id: Int): ClassModel?
+
 
 }

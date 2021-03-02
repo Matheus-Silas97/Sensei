@@ -2,19 +2,23 @@ package com.matheussilas97.sensei.view.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.adapter.ClassAdapter
-import com.matheussilas97.sensei.database.model.ClassModel
+import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.FragmentGroupsBinding
+import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.view.activity.ClassAddActivity
 import com.matheussilas97.sensei.view.activity.StudentActivity
-import com.matheussilas97.sensei.viewmodel.ClassViewModel
+import com.matheussilas97.sensei.viewmodel.GroupsViewModel
+
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -25,7 +29,7 @@ class GroupsFragment : Fragment() {
 
     private lateinit var binding: FragmentGroupsBinding
 
-    private lateinit var viewModel: ClassViewModel
+    private lateinit var viewModel: GroupsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,34 +45,82 @@ class GroupsFragment : Fragment() {
     ): View {
         binding = FragmentGroupsBinding.inflate(inflater, container, false)
 
-        viewModel = ViewModelProvider(this).get(ClassViewModel::class.java)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(GroupsViewModel::class.java)
+
+        viewModel.list()
 
         binding.floatingActionButton.setOnClickListener {
             startActivity(Intent(context, ClassAddActivity::class.java))
         }
 
         buildList()
-        return binding.root
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.list()
     }
 
     private fun buildList() {
-        val list = arrayListOf<ClassModel>()
-        list.add(ClassModel(1, "Teste"))
-        list.add(ClassModel(1, "Teste"))
-        list.add(ClassModel(1, "Teste"))
-        list.add(ClassModel(1, "Teste"))
-        val adapter = ClassAdapter(requireContext(), list)
-        binding.recyclerClass.layoutManager = LinearLayoutManager(context)
-        binding.recyclerClass.adapter = adapter
+        viewModel.groupList.observe(viewLifecycleOwner, Observer { data ->
+            if (!data.isNullOrEmpty()) {
+                binding.textInfo.visibility = View.GONE
+                binding.recyclerClass.visibility = View.VISIBLE
 
-        adapter.addOnItemClickListener(object : ClassAdapter.OnItemClickListener {
-            override fun onClick(id: Int) {
-                val intent = Intent(context, StudentActivity::class.java)
+                val adapter = ClassAdapter(requireContext(), data)
+                binding.recyclerClass.layoutManager = LinearLayoutManager(context)
+                binding.recyclerClass.adapter = adapter
 
-                startActivity(intent)
+                adapter.addOnItemClickListener(object : ClassAdapter.OnItemClickListener {
+                    override fun onClick(id: Int, nameGroup: String) {
+                        val intent = Intent(context, StudentActivity::class.java)
+                        intent.putExtra(Constants.GROUP_NAME, nameGroup)
+                        startActivity(intent)
+                    }
+
+                    override fun onDelete(id: Int, nameGroup: String) {
+                        deleteGroup(id, nameGroup)
+                    }
+
+                })
+            } else {
+                binding.textInfo.visibility = View.VISIBLE
+                binding.recyclerClass.visibility = View.GONE
             }
 
         })
+
+    }
+
+    private fun deleteGroup(id: Int, nameGroup: String) {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        val binding: DialogDeleteBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(context), R.layout.dialog_delete, null, false
+        )
+        val msg = getString(R.string.delete_group_message)
+        binding.txtDelete.text = "$msg $nameGroup?"
+
+        builder.setView(binding.root)
+        val dialog = builder.show()
+        dialog.setCancelable(true)
+        binding.btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.btnDelete.setOnClickListener {
+            viewModel.deleteClass(id)
+            viewModel.list()
+            dialog.dismiss()
+        }
     }
 
     companion object {

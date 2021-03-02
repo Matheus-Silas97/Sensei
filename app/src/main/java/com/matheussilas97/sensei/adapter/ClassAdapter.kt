@@ -17,6 +17,7 @@ class ClassAdapter(private val context: Context, private val list: List<ClassMod
         RecyclerView.ViewHolder(binding.root) {
         val nameGroup = binding.nameGroup
         val layoutClass = binding.layoutClassItem
+        val deleteIcon = binding.imgDelete
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassViewHolder {
@@ -28,14 +29,19 @@ class ClassAdapter(private val context: Context, private val list: List<ClassMod
         holder.nameGroup.text = list[position].className
 
         holder.layoutClass.setOnClickListener {
-            onItemClickLister?.onClick(list[position].id)
+            onItemClickLister?.onClick(list[position].id, list[position].className)
+        }
+
+        holder.deleteIcon.setOnClickListener {
+            onItemClickLister?.onDelete(list[position].id, list[position].className)
         }
     }
 
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickListener {
-        fun onClick(id: Int)
+        fun onClick(id: Int, nameGroup: String)
+        fun onDelete(id: Int, nameGroup: String)
     }
 
     private var onItemClickLister: OnItemClickListener? = null
