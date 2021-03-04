@@ -18,11 +18,21 @@ interface ClassDAO {
     @Delete
     fun deleteGroup(item: ClassModel)
 
+    @Query("DELETE FROM students WHERE classId = :idClass")
+    fun deleteStudentsByClass(idClass: Int)
+
     @Query("DELETE FROM groups")
     fun deleteAllGroups(): Int
 
     @Query("SELECT * FROM groups WHERE id = :id")
     fun load(id: Int): ClassModel?
+
+
+    @Query("SELECT count() from students")
+    fun totalStudents(): Int
+
+    @Query("SELECT count() from groups")
+    fun totalGroups(): Int
 
 
 }

@@ -27,6 +27,9 @@ data class StudentsModel(
     @ColumnInfo(name = "presence")
     val presence: Int,
 
+    @ColumnInfo(name = "dateStart")
+    val dateStart: String,
+
     @ColumnInfo(name = "classId")
     val classId: Int
 

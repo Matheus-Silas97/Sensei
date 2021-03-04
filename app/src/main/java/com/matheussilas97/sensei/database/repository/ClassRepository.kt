@@ -17,7 +17,14 @@ class ClassRepository(context: Context) {
 
     fun deleteClass(group: ClassModel) = mDataBase.deleteGroup(group)
 
+    fun deleteStudentByClass(id: Int) = mDataBase.deleteStudentsByClass(id)
+
     fun deleteAll(): Boolean = mDataBase.deleteAllGroups() > 0
 
     fun getLoad(id: Int): ClassModel? = mDataBase.load(id)
+
+    fun totalGroups(): Int = mDataBase.totalGroups()
+
+    fun totalStudents(): Int = mDataBase.totalStudents()
+
 }

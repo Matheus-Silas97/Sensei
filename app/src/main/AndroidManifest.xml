@@ -9,13 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sensei">
-        <activity android:name=".view.activity.StudentsDetailsActivity"></activity>
+        <activity android:name=".view.activity.ReportsActivity"></activity>
+        <activity android:name=".view.activity.StudentsAddActivity" />
+        <activity android:name=".view.activity.StudentsDetailsActivity" />
         <activity android:name=".view.activity.ClassAddActivity" />
         <activity android:name=".view.activity.LanguageActivity" />
-        <activity android:name=".view.activity.SettingsActivity" />
         <activity android:name=".view.activity.StudentActivity" />
-        <activity android:name=".view.activity.ClassActivity" />
-        <activity android:name=".view.activity.ChamadaActivity" />
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.SplashActivity">
             <intent-filter>

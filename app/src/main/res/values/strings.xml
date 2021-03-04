@@ -15,15 +15,38 @@
     <string name="change_name">Alterar nome</string>
     <string name="reset_all">Resetar aplicação</string>
     <string name="add_group">Adicionar grupo</string>
+    <string name="add_student">Adicionar aluno</string>
     <string name="group_name">Nome do turma</string>
     <string name="add">Adicionar</string>
+    <string name="delete_student_message">Deseja excluir o aluno?</string>
+    <string name="delete_all_sucess">Aplicação resetada com sucesso</string>
     <string name="delete_group_message">Deseja excluir o grupo</string>
+    <string name="delete_all">Deseja resetar tudo?</string>
+    <string name="reset">Resetar</string>
 
 
     <string name="empty_name_group">Preencha o campo nome do grupo</string>
+    <string name="empty_name">Preencha o campo nome completo</string>
+    <string name="empty_age">Preencha o campo idade</string>
+    <string name="empty_phone">Preencha o campo celular</string>
+    <string name="empty_grade">Preencha o campo grau</string>
+    <string name="empty_date_start">Preencha o campo data de início</string>
 
     <string name="click_button_plus">Clique no botão de + para adicionar um novo grupo</string>
+    <string name="click_button_plus_student">Clique no botão de + para adicionar um novo aluno</string>
     <string name="delete">Excluir</string>
     <string name="cancel">Cancelar</string>
+    <string name="complete_name">Nome completo</string>
+    <string name="grade">Grau</string>
+    <string name="age">Idade</string>
+    <string name="phone">Celular</string>
+    <string name="start_date">Data de inicio</string>
+    <string name="reports">Relatórios</string>
+    <string name="groups_total">Total de turmas:</string>
+    <string name="students_total">Total de alunos:</string>
+    <string name="presence">Presenças</string>
+
+    <string name="start_date_details">Data de início:</string>
+    <string name="age_details">Idade:</string>
 
 </resources>

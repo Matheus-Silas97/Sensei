@@ -29,6 +29,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
+            android:id="@+id/linear_language"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
@@ -74,11 +75,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Alterar Linguagem"
+            android:text="@string/change_language"
             android:textAllCaps="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/radio_group_language" />
+            app:layout_constraintTop_toBottomOf="@id/linear_language" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

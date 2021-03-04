@@ -15,6 +15,7 @@ class StudentsAdapter(private val context: Context, private val list: List<Stude
         val layout = binding.layout
         val name = binding.nameStudents
         val grade = binding.gradeStudents
+        val delete = binding.imgDelete
 
     }
 
@@ -30,12 +31,17 @@ class StudentsAdapter(private val context: Context, private val list: List<Stude
         holder.layout.setOnClickListener {
             onItemClickLister?.onClick(list[position].id)
         }
+
+        holder.delete.setOnClickListener {
+            onItemClickLister?.onDelete(list[position].id)
+        }
     }
 
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickListener {
         fun onClick(id: Int)
+        fun onDelete(id: Int)
     }
 
     private var onItemClickLister: OnItemClickListener? = null

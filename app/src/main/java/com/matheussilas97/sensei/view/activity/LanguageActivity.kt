@@ -17,7 +17,7 @@ class LanguageActivity : AppCompatActivity() {
         binding = ActivityLanguageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 

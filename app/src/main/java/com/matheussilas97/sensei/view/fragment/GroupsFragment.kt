@@ -82,6 +82,7 @@ class GroupsFragment : Fragment() {
                     override fun onClick(id: Int, nameGroup: String) {
                         val intent = Intent(context, StudentActivity::class.java)
                         intent.putExtra(Constants.GROUP_NAME, nameGroup)
+                        intent.putExtra(Constants.GROUP_ID, id)
                         startActivity(intent)
                     }
 

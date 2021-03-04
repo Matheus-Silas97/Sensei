@@ -8,5 +8,8 @@ object Constants {
     const val SPANISH = "spanish"
 
     const val GROUP_NAME = "group_name"
+    const val GROUP_ID = "group_id"
+
+    const val STUDENT_ID = "student_id"
 
 }

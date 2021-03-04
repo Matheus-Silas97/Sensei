@@ -23,7 +23,7 @@ class ClassAddActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[GroupsViewModel::class.java]
 
-        binding.toolbar.setOnClickListener {
+        binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 

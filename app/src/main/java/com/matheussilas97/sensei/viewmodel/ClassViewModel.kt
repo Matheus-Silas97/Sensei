@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.matheussilas97.sensei.database.model.ClassModel
 import com.matheussilas97.sensei.database.repository.ClassRepository
 
-class GroupsViewModel (application: Application): AndroidViewModel(application) {
+class GroupsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mClassRepository = ClassRepository(application.applicationContext)
 
@@ -25,6 +25,7 @@ class GroupsViewModel (application: Application): AndroidViewModel(application) 
         val group = mClassRepository.getLoad(id)
         if (group != null) {
             mClassRepository.deleteClass(group)
+            mClassRepository.deleteStudentByClass(id)
         }
     }
 
@@ -35,7 +36,11 @@ class GroupsViewModel (application: Application): AndroidViewModel(application) 
 
     fun saveClass(group: ClassModel) {
         mSaveItem.value = mClassRepository.addClass(group)
-
     }
+
+    fun totalGroups(): Int = mClassRepository.totalGroups()
+
+    fun totalStudents(): Int = mClassRepository.totalStudents()
+
 
 }
