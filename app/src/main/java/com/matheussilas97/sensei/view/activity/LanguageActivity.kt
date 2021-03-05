@@ -1,5 +1,6 @@
 package com.matheussilas97.sensei.view.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,24 +23,33 @@ class LanguageActivity : AppCompatActivity() {
         }
 
         binding.btnChangeLanguage.setOnClickListener {
-            if (binding.radioSpain.isChecked) {
-            SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.SPANISH)
-                toast(getString(R.string.language_spanish))
-                onBackPressed()
-            } else if (binding.radioUsa.isChecked) {
-                SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.ENGLISH)
-                toast(getString(R.string.language_english))
-                onBackPressed()
-            } else if (binding.radioBrazil.isChecked){
-                SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.PORTUGUESE)
-                toast(getString(R.string.language_portuguese))
-                onBackPressed()
-            }else{
-                toast(getString(R.string.language_selected))
+            when {
+                binding.radioSpain.isChecked -> {
+                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.SPANISH)
+                    toast(getString(R.string.language_spanish))
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                binding.radioUsa.isChecked -> {
+                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.ENGLISH)
+                    toast(getString(R.string.language_english))
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                binding.radioBrazil.isChecked -> {
+                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.PORTUGUESE)
+                    toast(getString(R.string.language_portuguese))
+                  startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+                }
+                else -> {
+                    toast(getString(R.string.language_selected))
+                }
             }
 
         }
     }
+
 
     private fun toast(msg: String){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

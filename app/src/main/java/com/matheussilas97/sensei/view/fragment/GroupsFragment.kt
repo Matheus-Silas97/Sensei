@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.adapter.ClassAdapter
+import com.matheussilas97.sensei.database.model.ClassModel
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
+import com.matheussilas97.sensei.databinding.DialogEditGroupBinding
 import com.matheussilas97.sensei.databinding.FragmentGroupsBinding
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.view.activity.ClassAddActivity
@@ -90,6 +92,10 @@ class GroupsFragment : Fragment() {
                         deleteGroup(id, nameGroup)
                     }
 
+                    override fun onEdit(id: Int, nameGroup: String) {
+                        editGroup(id, nameGroup)
+                    }
+
                 })
             } else {
                 binding.textInfo.visibility = View.VISIBLE
@@ -98,6 +104,29 @@ class GroupsFragment : Fragment() {
 
         })
 
+    }
+
+    private fun editGroup(id:Int, nameGroup: String){
+        val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
+        val binding: DialogEditGroupBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(context), R.layout.dialog_edit_group, null, false
+        )
+        binding.editNameGroup.setText(nameGroup)
+        builder.setView(binding.root)
+        val dialog = builder.show()
+        dialog.setCancelable(true)
+        binding.btnClose.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+        binding.btnSave.setOnClickListener {
+            val model = ClassModel(id, binding.editNameGroup.text.toString())
+            viewModel.saveClass(model)
+            viewModel.list()
+            dialog.dismiss()
+        }
     }
 
     private fun deleteGroup(id: Int, nameGroup: String) {

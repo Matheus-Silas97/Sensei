@@ -7,24 +7,41 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
-        tools:context=".view.fragment.HomeFragment">
+        tools:context=".view.activity.CallActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="@color/blue_dark"
+                android:layout_height="wrap_content"
+                app:titleTextColor="@color/white"
+                app:navigationIcon="@drawable/ic_back" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_call"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toBottomOf="@id/app_bar_layout" />
 
         <TextView
             android:id="@+id/text_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no_groups"
+            android:text="@string/no_students"
             android:textAlignment="center"
             android:textSize="30sp"
             android:visibility="gone"

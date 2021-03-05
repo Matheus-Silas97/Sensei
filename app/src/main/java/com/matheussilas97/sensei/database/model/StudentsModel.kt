@@ -18,8 +18,8 @@ data class StudentsModel(
     @ColumnInfo(name = "grade")
     val grade: String,
 
-    @ColumnInfo(name = "age")
-    val age: Int,
+    @ColumnInfo(name = "birthDate")
+    val birthDate: String,
 
     @ColumnInfo(name = "phone")
     val phone: String,

@@ -18,6 +18,7 @@ class ClassAdapter(private val context: Context, private val list: List<ClassMod
         val nameGroup = binding.nameGroup
         val layoutClass = binding.layoutClassItem
         val deleteIcon = binding.imgDelete
+        val editIcon = binding.imgEdit
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ClassViewHolder {
@@ -35,6 +36,10 @@ class ClassAdapter(private val context: Context, private val list: List<ClassMod
         holder.deleteIcon.setOnClickListener {
             onItemClickLister?.onDelete(list[position].id, list[position].className)
         }
+
+        holder.editIcon.setOnClickListener {
+            onItemClickLister?.onEdit(list[position].id, list[position].className)
+        }
     }
 
     override fun getItemCount(): Int = list.size
@@ -42,6 +47,7 @@ class ClassAdapter(private val context: Context, private val list: List<ClassMod
     interface OnItemClickListener {
         fun onClick(id: Int, nameGroup: String)
         fun onDelete(id: Int, nameGroup: String)
+        fun onEdit(id: Int, nameGroup: String)
     }
 
     private var onItemClickLister: OnItemClickListener? = null

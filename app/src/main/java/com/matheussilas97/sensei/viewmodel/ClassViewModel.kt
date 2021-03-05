@@ -35,7 +35,12 @@ class GroupsViewModel(application: Application) : AndroidViewModel(application) 
 
 
     fun saveClass(group: ClassModel) {
-        mSaveItem.value = mClassRepository.addClass(group)
+        if (group.id == 0) {
+            mSaveItem.value = mClassRepository.addClass(group)
+        } else {
+            mSaveItem.value = mClassRepository.updateClass(group)
+        }
+
     }
 
     fun totalGroups(): Int = mClassRepository.totalGroups()

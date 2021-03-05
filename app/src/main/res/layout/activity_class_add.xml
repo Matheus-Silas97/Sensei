@@ -43,25 +43,28 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/group_name" />
-
-                <EditText
-                    android:id="@+id/edit_group_name"
-                    android:inputType="text"
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:imeOptions="actionDone"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:hint="@string/group_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edit_group_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:imeOptions="actionDone"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
 
                 <Button
                     android:id="@+id/btn_add"
                     style="@style/button_theme"
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="@string/add" />
 
             </LinearLayout>

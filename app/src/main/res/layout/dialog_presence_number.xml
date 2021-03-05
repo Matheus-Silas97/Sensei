@@ -6,10 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/btn_close"
@@ -20,27 +17,48 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_delete"
+            android:id="@+id/txt_amount_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:textSize="20sp"
-            android:textAlignment="center"
             android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            android:text="@string/change_number"
+            android:textAlignment="center"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_close" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/layout_input_amount_presence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/amount_of_presence"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_amount_info">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_amount_presence"
+                android:layout_width="match_parent"
+                android:backgroundTint="@color/white"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionDone"
+                android:inputType="number" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
         <Button
-            android:id="@+id/btn_delete"
+            android:id="@+id/btn_chage"
             style="@style/button_theme"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="@string/delete"
+            android:text="@string/change"
             app:layout_constraintEnd_toStartOf="@id/btn_cancel"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_delete" />
+            app:layout_constraintTop_toBottomOf="@id/layout_input_amount_presence" />
 
         <Button
             android:id="@+id/btn_cancel"
@@ -50,8 +68,8 @@
             android:layout_marginTop="20dp"
             android:text="@string/cancel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_delete"
-            app:layout_constraintTop_toBottomOf="@id/txt_delete" />
+            app:layout_constraintStart_toEndOf="@id/btn_chage"
+            app:layout_constraintTop_toBottomOf="@id/layout_input_amount_presence" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
