@@ -61,7 +61,8 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
           student.phone,
           amount,
           student.dateStart,
-          student.classId
+          student.classId,
+          student.gender
       )
       mStudentRepository.updateStudents(updateStudent)
     }
@@ -79,7 +80,8 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
             student.phone,
             presence,
             student.dateStart,
-            student.classId
+            student.classId,
+            student.gender
         )
         mStudentRepository.updateStudents(updateStudent)
     }
@@ -97,7 +99,8 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
             student.phone,
             presence,
             student.dateStart,
-            student.classId
+            student.classId,
+            student.gender
         )
         mStudentRepository.updateStudents(updateStudent)
     }

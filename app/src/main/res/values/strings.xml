@@ -13,7 +13,7 @@
     <string name="add_group">Adicionar grupo</string>
     <string name="add_student">Adicionar aluno</string>
     <string name="edit_student">Editar aluno</string>
-    <string name="edit_presence_number">Editar quantidade de presenças</string>
+    <string name="edit_presence_number"><u>Editar quantidade de presenças</u></string>
     <string name="edit_group">Editar grupo</string>
     <string name="change_language">Alterar idioma</string>
     <string name="change_name">Alterar nome</string>
@@ -33,7 +33,7 @@
     <string name="amount_of_presence">Quantidade de presença</string>
 
     <string name="no_groups">Sem nenhuma turma</string>
-    <string name="no_students">Turma vazia</string>
+    <string name="no_students">Sem alunos</string>
     <string name="change_number">Alterar quantidade de presença</string>
 
     <string name="delete_all_sucess">Aplicação resetada com sucesso</string>
@@ -66,5 +66,24 @@
     <string name="click_button_plus">Clique no botão de + para adicionar um novo grupo</string>
     <string name="click_button_plus_student">Clique no botão de + para adicionar um novo aluno</string>
     <string name="language_selected">Selecione um idioma</string>
+    <string name="gender">Gênero</string>
+    <string name="Female">Feminino</string>
+    <string name="Male">Masculino</string>
+    <string name="empty_gender">Selecione um gênero</string>
+    <string name="select_class_for_call">Selecione uma turma para fazer chamada</string>
+    <string name="details">Detalhes</string>
+    <string name="notes">Anotações</string>
+    <string name="empty_notes">Notas vazias</string>
+    <string name="add_note">Adicionar anotação</string>
+    <string name="edit_note">Editar anotação</string>
+    <string name="delete_note">Deletar anotação?</string>
+    <string name="note">Anotação</string>
+    <string name="empty_note">Preencha o campo nota</string>
+    <string name="txt_total_mens">Total sexo masculino:</string>
+    <string name="txt_total_womens">Total sexo feminino:</string>
+    <string name="ranking">Ranking</string>
+    <string name="ranking_info">Ranking de quantidade de presenças dos alunos</string>
+    <string name="empty_ranking">Sem alunos cadastrados</string>
+    <string name="placing">Colocação</string>
 
 </resources>

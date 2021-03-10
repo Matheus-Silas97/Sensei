@@ -13,6 +13,8 @@ import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.FragmentSettingsBinding
 import com.matheussilas97.sensei.view.activity.LanguageActivity
+import com.matheussilas97.sensei.view.activity.NotesActivity
+import com.matheussilas97.sensei.view.activity.RankingActivity
 import com.matheussilas97.sensei.view.activity.ReportsActivity
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
 
@@ -43,6 +45,14 @@ class SettingsFragment : Fragment() {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
 
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
+
+        binding.btnNotes.setOnClickListener {
+            startActivity(Intent(context, NotesActivity::class.java))
+        }
+
+        binding.btnRanking.setOnClickListener {
+            startActivity(Intent(context, RankingActivity::class.java))
+        }
 
         binding.btnChangeLanguage.setOnClickListener {
             startActivity(Intent(context, LanguageActivity::class.java))

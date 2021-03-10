@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sensei">
-        <activity android:name=".view.activity.CallActivity"></activity>
+        <activity android:name=".view.activity.RankingActivity"></activity>
+        <activity android:name=".view.activity.NotesAddActivity" />
+        <activity android:name=".view.activity.NotesActivity" />
+        <activity android:name=".view.activity.CallActivity" />
         <activity android:name=".view.activity.StudentEditActivity" />
         <activity android:name=".view.activity.ReportsActivity" />
         <activity android:name=".view.activity.StudentsAddActivity" />

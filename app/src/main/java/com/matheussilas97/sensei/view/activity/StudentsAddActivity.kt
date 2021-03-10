@@ -52,13 +52,22 @@ class StudentsAddActivity : AppCompatActivity() {
 
     private fun registerStudent(idGroup: Int) {
         val name = binding.editStudentName.text.toString()
+        var gender: String = ""
         val birthDate = binding.editBirthDate.text.toString()
         val grade = binding.editGrade.text.toString()
         val phone = binding.editPhone.text.toString()
         val dateStart = binding.editStartDate.text.toString()
 
+            if (binding.radioMale.isChecked){
+                gender = Constants.MALE
+            }else if (binding.radioFemale.isChecked){
+                gender = Constants.FEMALE
+            }
+
         if (name.isEmpty()) {
             toast(getString(R.string.empty_name))
+        }else if (gender.isNullOrEmpty()){
+            toast(getString(R.string.empty_gender))
         } else if (birthDate.isEmpty()) {
             toast(getString(R.string.empty_birthday))
         } else if (grade.isEmpty()) {
@@ -68,7 +77,7 @@ class StudentsAddActivity : AppCompatActivity() {
         } else if (dateStart.isEmpty()) {
             toast(getString(R.string.empty_date_start))
         } else {
-            val model = StudentsModel(0, name, grade, birthDate, phone, 0, dateStart, idGroup)
+            val model = StudentsModel(0, name, grade, birthDate, phone, 0, dateStart, idGroup, gender)
             viewModel.saveStudent(model)
             onBackPressed()
         }

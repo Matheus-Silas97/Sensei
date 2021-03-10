@@ -84,6 +84,7 @@ class HomeFragment : Fragment() {
         viewModel.groupList.observe(viewLifecycleOwner, Observer { data ->
             if (!data.isNullOrEmpty()) {
                 binding.recyclerCall.visibility = View.VISIBLE
+                binding.textInfoCall.visibility = View.VISIBLE
                 binding.textInfo.visibility = View.GONE
 
                 val adapter = CallClassAdapter(requireContext(), data)
@@ -101,6 +102,7 @@ class HomeFragment : Fragment() {
                 })
             }else{
                 binding.recyclerCall.visibility = View.GONE
+                binding.textInfoCall.visibility = View.GONE
                 binding.textInfo.visibility = View.VISIBLE
             }
         })

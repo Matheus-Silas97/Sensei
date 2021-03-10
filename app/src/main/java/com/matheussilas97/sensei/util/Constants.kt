@@ -12,4 +12,7 @@ object Constants {
 
     const val STUDENT_ID = "student_id"
 
+    const val MALE = "male"
+    const val FEMALE = "female"
+
 }

@@ -84,13 +84,22 @@ class StudentsDetailsActivity : AppCompatActivity() {
 
             val birthDate = viewModel.loadStudent(idStudent).birthDate
 
-            binding.nameStudent.text = viewModel.loadStudent(idStudent).name
+            val student = viewModel.loadStudent(idStudent)
+            var gender = ""
+                if (student.gender == Constants.MALE){
+                    gender = getString(R.string.Male)
+                }else {
+                    gender = getString(R.string.Female)
+                }
+
+            binding.nameStudent.text = student.name
             binding.dateStart.text =
-                "$dateStartDetails ${viewModel.loadStudent(idStudent).dateStart}"
-            binding.grade.text = viewModel.loadStudent(idStudent).grade
+                "$dateStartDetails ${student.dateStart}"
+            binding.grade.text = student.grade
             binding.age.text = "$ageDetails ${viewModel.calculateAge(birthDate)}"
-            binding.phone.text = viewModel.loadStudent(idStudent).phone
-            binding.presence.text = viewModel.loadStudent(idStudent).presence.toString()
+            binding.gender.text = "${getString(R.string.gender)}: $gender"
+            binding.phone.text = student.phone
+            binding.presence.text = student.presence.toString()
         }
     }
 

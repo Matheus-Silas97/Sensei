@@ -8,7 +8,7 @@
     <string name="add_group">Add group</string>
     <string name="add_student">Add student</string>
     <string name="edit_student">Edit student</string>
-    <string name="edit_presence_number">Edit attendance quantity</string>
+    <string name="edit_presence_number"><u>Edit attendance quantity</u></string>
     <string name="edit_group">Edit group</string>
     <string name="change_language">Change the language</string>
     <string name="change_name">Change name</string>
@@ -24,7 +24,7 @@
     <string name="presence">Attendance</string>
     <string name="amount_of_presence">Amount of presence</string>
     <string name="no_groups">No class</string>
-    <string name="no_students">Empty class</string>
+    <string name="no_students">No students</string>
     <string name="change_number">Change presence amount</string>
     <string name="delete_all_sucess">Application successfully reset</string>
     <string name="amount_change_sucess">Presence amount changed successfully</string>
@@ -51,4 +51,23 @@
     <string name="empty_date_start">Fill in the start date field</string>
     <string name="click_button_plus">Click the + button to add a new group</string>
     <string name="click_button_plus_student">Click the + button to add a new student</string>
+    <string name="gender">Genre</string>
+    <string name="Female">Female</string>
+    <string name="Male">Male</string>
+    <string name="empty_gender">Select a genre</string>
+    <string name="select_class_for_call">Select a class to make a call</string>
+    <string name="details">Details</string>
+    <string name="notes">Notes</string>
+    <string name="empty_notes">Empty notes</string>
+    <string name="add_note">Add annotation</string>
+    <string name="edit_note">Edit annotation</string>
+    <string name="delete_note">Delete annotation?</string>
+    <string name="note">Annotation</string>
+    <string name="empty_note">Fill in the note field</string>
+    <string name="txt_total_mens">Total male gender:</string>
+    <string name="txt_total_womens">Total female gender:</string>
+    <string name="ranking">Ranking</string>
+    <string name="ranking_info">Ranking of student attendance</string>
+    <string name="empty_ranking">No students registered</string>
+    <string name="placing">Placing</string>
 </resources>

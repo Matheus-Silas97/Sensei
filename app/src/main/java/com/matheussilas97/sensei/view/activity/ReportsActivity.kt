@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityReportsBinding
+import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.viewmodel.GroupsViewModel
 
 class ReportsActivity : AppCompatActivity() {
@@ -26,7 +27,8 @@ class ReportsActivity : AppCompatActivity() {
 
         binding.totalGroups.text = viewModel.totalGroups().toString()
         binding.totalStudents.text = viewModel.totalStudents().toString()
-
+        binding.totalWomens.text = viewModel.totalWomens(Constants.FEMALE).toString()
+        binding.totalMens.text = viewModel.totalMens(Constants.MALE).toString()
 
     }
 }

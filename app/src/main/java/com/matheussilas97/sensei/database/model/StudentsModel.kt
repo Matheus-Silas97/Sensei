@@ -31,6 +31,9 @@ data class StudentsModel(
     val dateStart: String,
 
     @ColumnInfo(name = "classId")
-    val classId: Int
+    val classId: Int,
+
+    @ColumnInfo(name = "gender")
+    val gender: String
 
 )

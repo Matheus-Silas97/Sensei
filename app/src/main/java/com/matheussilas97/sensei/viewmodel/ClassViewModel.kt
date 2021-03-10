@@ -47,5 +47,8 @@ class GroupsViewModel(application: Application) : AndroidViewModel(application) 
 
     fun totalStudents(): Int = mClassRepository.totalStudents()
 
+    fun totalWomens(gender: String): Int = mClassRepository.totalWomens(gender)
+
+    fun totalMens(gender: String): Int = mClassRepository.totalMens(gender)
 
 }

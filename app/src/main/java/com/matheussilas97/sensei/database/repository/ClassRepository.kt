@@ -3,6 +3,7 @@ package com.matheussilas97.sensei.database.repository
 import android.content.Context
 import com.matheussilas97.sensei.database.MainDataBase
 import com.matheussilas97.sensei.database.model.ClassModel
+import com.matheussilas97.sensei.database.model.StudentsModel
 
 class ClassRepository(context: Context) {
 
@@ -26,5 +27,11 @@ class ClassRepository(context: Context) {
     fun totalGroups(): Int = mDataBase.totalGroups()
 
     fun totalStudents(): Int = mDataBase.totalStudents()
+
+    fun totalWomens(gender: String): Int = mDataBase.totalWomens(gender)
+
+    fun totalMens(gender: String): Int = mDataBase.totalMens(gender)
+
+    fun ranking(): List<StudentsModel> = mDataBase.ranking()
 
 }

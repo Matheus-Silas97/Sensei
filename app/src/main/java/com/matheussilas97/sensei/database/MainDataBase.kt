@@ -5,15 +5,18 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.matheussilas97.sensei.database.dao.ClassDAO
+import com.matheussilas97.sensei.database.dao.NotesDAO
 import com.matheussilas97.sensei.database.dao.StudentsDAO
 import com.matheussilas97.sensei.database.model.ClassModel
+import com.matheussilas97.sensei.database.model.NotesModel
 import com.matheussilas97.sensei.database.model.StudentsModel
 
-@Database(entities = [StudentsModel::class, ClassModel::class], version = 1)
+@Database(entities = [StudentsModel::class, ClassModel::class, NotesModel::class], version = 1)
 abstract class MainDataBase: RoomDatabase() {
 
     abstract fun studentDAO(): StudentsDAO
     abstract fun classDAO(): ClassDAO
+    abstract fun notesDAO(): NotesDAO
 
     companion object {
         private lateinit var INSTANCE: MainDataBase

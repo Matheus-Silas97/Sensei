@@ -8,7 +8,7 @@
     <string name="add_group">Añadir grupo</string>
     <string name="add_student">Agregar alumno</string>
     <string name="edit_student">Editar alumno</string>
-    <string name="edit_presence_number">Editar la cantidad de asistencia</string>
+    <string name="edit_presence_number"><u>Editar la cantidad de asistencia</u></string>
     <string name="edit_group">Editar grupo</string>
     <string name="change_language">Cambia el idioma</string>
     <string name="change_name">Cambiar nombre</string>
@@ -24,7 +24,7 @@
     <string name="presence">Asistencia</string>
     <string name="amount_of_presence">Cantidad de presencia</string>
     <string name="no_groups">Sin clase</string>
-    <string name="no_students">Clase vacía</string>
+    <string name="no_students">Sin estudiantes</string>
     <string name="change_number">Cambiar la cantidad de presencia</string>
     <string name="delete_all_sucess">Aplicación restablecida con éxito</string>
     <string name="amount_change_sucess">La cantidad de presencia cambió con éxito</string>
@@ -51,4 +51,23 @@
     <string name="empty_date_start">Complete el campo de la fecha de inicio</string>
     <string name="click_button_plus">Haga clic en el botón + para agregar un nuevo grupo</string>
     <string name="click_button_plus_student">Haga clic en el botón + para agregar un nuevo alumno</string>
+    <string name="Female">Mujer</string>
+    <string name="gender">Género</string>
+    <string name="Male">Masculino</string>
+    <string name="empty_gender">Seleccione un género</string>
+    <string name="select_class_for_call">Seleccione una clase para hacer una llamada</string>
+    <string name="details">Detalles</string>
+    <string name="notes">Notas</string>
+    <string name="empty_notes">Notas vacías</string>
+    <string name="add_note">Agregar anotación</string>
+    <string name="edit_note">Editar anotación</string>
+    <string name="delete_note">¿Eliminar anotación?</string>
+    <string name="note">Anotación</string>
+    <string name="empty_note">Complete el campo de la nota</string>
+    <string name="txt_total_mens">Sexo masculino total:</string>
+    <string name="txt_total_womens">Sexo femenino total:</string>
+    <string name="ranking">Clasificación</string>
+    <string name="ranking_info">Ranking de asistencia de los estudiantes</string>
+    <string name="empty_ranking">No hay estudiantes registrados</string>
+    <string name="placing">Colocación</string>
 </resources>

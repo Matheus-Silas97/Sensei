@@ -23,7 +23,6 @@
                 android:id="@+id/name_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAllCaps="true"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"

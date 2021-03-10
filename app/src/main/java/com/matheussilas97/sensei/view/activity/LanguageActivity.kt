@@ -1,4 +1,4 @@
-package com.matheussilas97.sensei.view.activity
+    package com.matheussilas97.sensei.view.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

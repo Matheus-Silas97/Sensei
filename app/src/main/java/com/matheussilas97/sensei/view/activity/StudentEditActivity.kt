@@ -37,9 +37,24 @@ class StudentEditActivity : AppCompatActivity() {
 
         setInfoFromStudent()
 
-        binding.editPhone.addTextChangedListener(MaskEditUtil.mask(binding.editPhone, "(##) #####-####"))
-        binding.editStartDate.addTextChangedListener(MaskEditUtil.mask(binding.editStartDate, "##/##/####"))
-        binding.editBirthDate.addTextChangedListener(MaskEditUtil.mask(binding.editBirthDate, "##/##/####"))
+        binding.editPhone.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editPhone,
+                "(##) #####-####"
+            )
+        )
+        binding.editStartDate.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editStartDate,
+                "##/##/####"
+            )
+        )
+        binding.editBirthDate.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editBirthDate,
+                "##/##/####"
+            )
+        )
 
     }
 
@@ -59,13 +74,23 @@ class StudentEditActivity : AppCompatActivity() {
 
     private fun editStudent(idGroup: Int) {
         val name = binding.editStudentName.text.toString()
+        var gender = ""
         val birthDate = binding.editBirthDate.text.toString()
         val grade = binding.editGrade.text.toString()
         val phone = binding.editPhone.text.toString()
         val dateStart = binding.editStartDate.text.toString()
 
+        if (binding.radioMale.isChecked) {
+            gender = Constants.MALE
+        } else if (binding.radioFemale.isChecked) {
+            gender = Constants.FEMALE
+        }
+
+
         if (name.isEmpty()) {
             toast(getString(R.string.empty_name))
+        } else if (gender.isNullOrEmpty()) {
+            toast(getString(R.string.empty_gender))
         } else if (birthDate.isEmpty()) {
             toast(getString(R.string.empty_birthday))
         } else if (grade.isEmpty()) {
@@ -83,7 +108,7 @@ class StudentEditActivity : AppCompatActivity() {
                 phone,
                 viewModel.loadStudent(idStudent).presence,
                 dateStart,
-                idGroup
+                idGroup, gender
             )
             viewModel.saveStudent(model)
             onBackPressed()
