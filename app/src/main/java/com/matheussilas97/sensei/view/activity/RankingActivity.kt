@@ -30,6 +30,7 @@ class RankingActivity : AppCompatActivity() {
 
         listRanking()
         viewModel.ranking()
+
     }
 
     override fun onResume() {

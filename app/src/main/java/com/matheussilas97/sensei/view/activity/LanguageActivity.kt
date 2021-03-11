@@ -23,33 +23,39 @@ class LanguageActivity : AppCompatActivity() {
         }
 
         binding.btnChangeLanguage.setOnClickListener {
-            when {
-                binding.radioSpain.isChecked -> {
-                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.SPANISH)
-                    toast(getString(R.string.language_spanish))
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
-                binding.radioUsa.isChecked -> {
-                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.ENGLISH)
-                    toast(getString(R.string.language_english))
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
-                binding.radioBrazil.isChecked -> {
-                    SharedPreferences.getInstance(this).saveString(Constants.LANGUAGE, Constants.PORTUGUESE)
-                    toast(getString(R.string.language_portuguese))
-                  startActivity(Intent(this, MainActivity::class.java))
-                    finish()
-                }
-                else -> {
-                    toast(getString(R.string.language_selected))
-                }
-            }
+            changeLanguage()
 
         }
     }
 
+    private fun changeLanguage() {
+        when {
+            binding.radioSpain.isChecked -> {
+                SharedPreferences.getInstance(this)
+                    .saveString(Constants.LANGUAGE, Constants.SPANISH)
+                toast(getString(R.string.language_spanish))
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            binding.radioUsa.isChecked -> {
+                SharedPreferences.getInstance(this)
+                    .saveString(Constants.LANGUAGE, Constants.ENGLISH)
+                toast(getString(R.string.language_english))
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            binding.radioBrazil.isChecked -> {
+                SharedPreferences.getInstance(this)
+                    .saveString(Constants.LANGUAGE, Constants.PORTUGUESE)
+                toast(getString(R.string.language_portuguese))
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }
+            else -> {
+                toast(getString(R.string.language_selected))
+            }
+        }
+    }
 
     private fun toast(msg: String){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

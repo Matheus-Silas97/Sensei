@@ -18,7 +18,6 @@ class RankingAdapter(private val context: Context, private val list: List<Studen
         val position = binding.position
         val name = binding.name
         val presence = binding.presences
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RankingViewHolder {
@@ -28,12 +27,16 @@ class RankingAdapter(private val context: Context, private val list: List<Studen
 
     override fun onBindViewHolder(holder: RankingViewHolder, position: Int) {
        val p = position+1
-        if (p == 1){
-            holder.position.setTextColor(ContextCompat.getColor(context, R.color.gold))
-        }else if (p == 2){
-            holder.position.setTextColor(ContextCompat.getColor(context, R.color.silver))
-        }else if (p == 3){
-            holder.position.setTextColor(ContextCompat.getColor(context, R.color.bronze))
+        when (p) {
+            1 -> {
+                holder.position.setTextColor(ContextCompat.getColor(context, R.color.gold))
+            }
+            2 -> {
+                holder.position.setTextColor(ContextCompat.getColor(context, R.color.silver))
+            }
+            3 -> {
+                holder.position.setTextColor(ContextCompat.getColor(context, R.color.bronze))
+            }
         }
 
         holder.position.text = p.toString()

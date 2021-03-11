@@ -28,14 +28,18 @@ class ClassAddActivity : AppCompatActivity() {
         }
 
         binding.btnAdd.setOnClickListener {
-            val editGroupName = binding.editGroupName.text.toString()
-            if (editGroupName.isEmpty()) {
-                toast(getString(R.string.empty_name_group))
-            } else {
-                val group = ClassModel(0, editGroupName)
-                viewModel.saveClass(group)
-                onBackPressed()
-            }
+            addGroup()
+        }
+    }
+
+    private fun addGroup() {
+        val editGroupName = binding.editGroupName.text.toString()
+        if (editGroupName.isEmpty()) {
+            toast(getString(R.string.empty_name_group))
+        } else {
+            val group = ClassModel(0, editGroupName)
+            viewModel.saveClass(group)
+            onBackPressed()
         }
     }
 

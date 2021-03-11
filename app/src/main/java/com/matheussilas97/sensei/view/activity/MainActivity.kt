@@ -19,16 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val languageToLoad =
-            SharedPreferences.getInstance(this).getString(Constants.LANGUAGE, "")
-        val locale = Locale(languageToLoad)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.locale = locale
-        this.resources.updateConfiguration(
-            config,
-            this.resources.displayMetrics
-        )
+        loadLanguage()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -37,6 +28,24 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigationView.setupWithNavController(naviController)
 
+    }
+
+    override fun recreate() {
+        super.recreate()
+        loadLanguage()
+    }
+
+    private fun loadLanguage() {
+        val languageToLoad =
+            SharedPreferences.getInstance(this).getString(Constants.LANGUAGE, "")
+        val locale = Locale(languageToLoad!!)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.locale = locale
+        this.resources.updateConfiguration(
+            config,
+            this.resources.displayMetrics
+        )
     }
 
 }

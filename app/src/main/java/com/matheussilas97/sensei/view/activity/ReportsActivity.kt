@@ -25,10 +25,14 @@ class ReportsActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[GroupsViewModel::class.java]
 
+        reports()
+
+    }
+
+    private fun reports() {
         binding.totalGroups.text = viewModel.totalGroups().toString()
         binding.totalStudents.text = viewModel.totalStudents().toString()
         binding.totalWomens.text = viewModel.totalWomens(Constants.FEMALE).toString()
         binding.totalMens.text = viewModel.totalMens(Constants.MALE).toString()
-
     }
 }

@@ -36,16 +36,7 @@ class HomeFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        val languageToLoad =
-            SharedPreferences.getInstance(requireContext()).getString(Constants.LANGUAGE, "")
-        val locale = Locale(languageToLoad)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.locale = locale
-        this.resources.updateConfiguration(
-            config,
-            this.resources.displayMetrics
-        )
+        loadLanguage()
     }
 
     override fun onCreateView(
@@ -67,6 +58,10 @@ class HomeFragment : Fragment() {
         super.onResume()
         viewModel.list()
 
+        loadLanguage()
+    }
+
+    private fun loadLanguage() {
         val languageToLoad =
             SharedPreferences.getInstance(requireContext()).getString(Constants.LANGUAGE, "")
         val locale = Locale(languageToLoad)

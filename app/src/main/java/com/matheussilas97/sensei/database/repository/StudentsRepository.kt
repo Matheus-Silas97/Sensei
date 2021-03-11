@@ -24,4 +24,5 @@ class StudentsRepository(context: Context) {
     fun getLoadStudent(id: Int): StudentsModel = mDataBase.loadStudent(id)
 
     fun countStudentsFromGroups(idGroup: Int): Int = mDataBase.countStudentsFromGroups(idGroup)
+
 }

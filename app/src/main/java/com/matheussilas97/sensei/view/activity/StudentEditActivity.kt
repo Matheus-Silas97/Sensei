@@ -37,24 +37,9 @@ class StudentEditActivity : AppCompatActivity() {
 
         setInfoFromStudent()
 
-        binding.editPhone.addTextChangedListener(
-            MaskEditUtil.mask(
-                binding.editPhone,
-                "(##) #####-####"
-            )
-        )
-        binding.editStartDate.addTextChangedListener(
-            MaskEditUtil.mask(
-                binding.editStartDate,
-                "##/##/####"
-            )
-        )
-        binding.editBirthDate.addTextChangedListener(
-            MaskEditUtil.mask(
-                binding.editBirthDate,
-                "##/##/####"
-            )
-        )
+        binding.editPhone.addTextChangedListener(MaskEditUtil.mask(binding.editPhone, "(##) #####-####"))
+        binding.editStartDate.addTextChangedListener(MaskEditUtil.mask(binding.editStartDate, "##/##/####"))
+        binding.editBirthDate.addTextChangedListener(MaskEditUtil.mask(binding.editBirthDate, "##/##/####"))
 
     }
 

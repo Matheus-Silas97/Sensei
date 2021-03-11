@@ -12,7 +12,6 @@ import com.matheussilas97.sensei.databinding.ItemClassBinding
 class ClassAdapter(private val context: Context, private val list: List<ClassModel>) :
     RecyclerView.Adapter<ClassAdapter.ClassViewHolder>() {
 
-
     inner class ClassViewHolder(binding: ItemClassBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val nameGroup = binding.nameGroup

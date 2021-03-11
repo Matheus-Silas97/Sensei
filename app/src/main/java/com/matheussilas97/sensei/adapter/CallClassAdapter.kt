@@ -10,7 +10,6 @@ import com.matheussilas97.sensei.databinding.ItemCallClassBinding
 class CallClassAdapter (private val context: Context, private val list: List<ClassModel>) :
     RecyclerView.Adapter<CallClassAdapter.ClassCallViewHolder>() {
 
-
     inner class ClassCallViewHolder(binding: ItemCallClassBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val nameGroup = binding.nameGroup
@@ -42,6 +41,5 @@ class CallClassAdapter (private val context: Context, private val list: List<Cla
     fun addOnItemClickListener(onItemClickListener: OnItemClickListener) {
         this.onItemClickLister = onItemClickListener
     }
-
 
 }

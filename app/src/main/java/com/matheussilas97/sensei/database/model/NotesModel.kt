@@ -13,4 +13,5 @@ data class NotesModel (
 
     @ColumnInfo(name = "note")
     val note: String
+
 )

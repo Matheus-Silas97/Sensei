@@ -3,6 +3,7 @@ package com.matheussilas97.sensei.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -37,15 +38,7 @@ class NotesActivity : AppCompatActivity() {
         binding.toolbar.inflateMenu(R.menu.menu_add)
 
         binding.toolbar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.ic_add -> {
-                    addNote()
-                    return@setOnMenuItemClickListener true
-                }
-                else -> {
-                    return@setOnMenuItemClickListener false
-                }
-            }
+            return@setOnMenuItemClickListener optionsToolbar(it)
         }
 
         notesList()
@@ -54,6 +47,47 @@ class NotesActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         viewModel.listNotes()
+    }
+
+    private fun optionsToolbar(it: MenuItem): Boolean {
+        when (it.itemId) {
+            R.id.ic_add -> {
+                addNote()
+                return true
+            }
+            else -> {
+                return false
+            }
+        }
+    }
+
+    private fun notesList() {
+        viewModel.noteList.observe(this, Observer { data ->
+            if (!data.isNullOrEmpty()) {
+                binding.recyclerNotes.visibility = View.VISIBLE
+                binding.textInfo.visibility = View.GONE
+
+                val adapter = NotesAdapter(this, data)
+                binding.recyclerNotes.layoutManager = LinearLayoutManager(this)
+                binding.recyclerNotes.adapter = adapter
+
+                adapter.addOnItemClickListener(object : NotesAdapter.OnItemClickListener {
+                    override fun onDelete(id: Int, note: String) {
+                        deleteNote(id)
+                    }
+
+                    override fun onEdit(id: Int, note: String) {
+                        editNote(id, note)
+                    }
+
+                })
+            } else {
+                binding.recyclerNotes.visibility = View.GONE
+                binding.textInfo.visibility = View.VISIBLE
+            }
+
+        })
+
     }
 
     private fun addNote() {
@@ -102,11 +136,11 @@ class NotesActivity : AppCompatActivity() {
             dialog.dismiss()
         }
         binding.btnSave.setOnClickListener {
-            val note = binding.editNote.text.toString()
-            if (note.isNullOrEmpty()) {
+            val newNote = binding.editNote.text.toString()
+            if (newNote.isNullOrEmpty()) {
                 Toast.makeText(this, R.string.empty_note, Toast.LENGTH_SHORT).show()
             } else {
-                viewModel.saveNote(NotesModel(id, note))
+                viewModel.saveNote(NotesModel(id, newNote))
                 viewModel.listNotes()
                 dialog.dismiss()
             }
@@ -137,32 +171,4 @@ class NotesActivity : AppCompatActivity() {
         }
     }
 
-    private fun notesList() {
-        viewModel.noteList.observe(this, Observer { data ->
-            if (!data.isNullOrEmpty()) {
-                binding.recyclerNotes.visibility = View.VISIBLE
-                binding.textInfo.visibility = View.GONE
-
-                val adapter = NotesAdapter(this, data)
-                binding.recyclerNotes.layoutManager = LinearLayoutManager(this)
-                binding.recyclerNotes.adapter = adapter
-
-                adapter.addOnItemClickListener(object : NotesAdapter.OnItemClickListener {
-                    override fun onDelete(id: Int, note: String) {
-                        deleteNote(id)
-                    }
-
-                    override fun onEdit(id: Int, note: String) {
-                        editNote(id, note)
-                    }
-
-                })
-            } else {
-                binding.recyclerNotes.visibility = View.GONE
-                binding.textInfo.visibility = View.VISIBLE
-            }
-
-        })
-
-    }
 }

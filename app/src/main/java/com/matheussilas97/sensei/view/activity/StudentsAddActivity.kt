@@ -52,7 +52,7 @@ class StudentsAddActivity : AppCompatActivity() {
 
     private fun registerStudent(idGroup: Int) {
         val name = binding.editStudentName.text.toString()
-        var gender: String = ""
+        var gender = ""
         val birthDate = binding.editBirthDate.text.toString()
         val grade = binding.editGrade.text.toString()
         val phone = binding.editPhone.text.toString()

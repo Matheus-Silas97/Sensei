@@ -36,6 +36,7 @@ class CallActivity : AppCompatActivity() {
 
         callList()
         takeValuesFromId()
+
     }
 
     override fun onResume() {
@@ -53,7 +54,6 @@ class CallActivity : AppCompatActivity() {
             viewModel.listFromGroup(idGroup)
         }
     }
-
 
     private fun callList() {
         viewModel.studentListFromGroup.observe(this, Observer { data ->

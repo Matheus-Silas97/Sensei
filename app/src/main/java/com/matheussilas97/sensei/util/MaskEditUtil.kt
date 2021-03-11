@@ -5,11 +5,6 @@ import android.text.TextWatcher
 import android.widget.EditText
 
 object MaskEditUtil {
-    const val FORMAT_CPF = "###.###.###-##"
-    const val FORMAT_FONE = "(###)####-#####"
-    const val FORMAT_CEP = "#####-###"
-    const val FORMAT_DATE = "##/##/####"
-    const val FORMAT_HOUR = "##:##"
 
     /**
      * Método que deve ser chamado para realizar a formatação
