@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -62,6 +63,7 @@ class GroupsFragment : Fragment() {
         }
 
         buildList()
+        observer()
 
     }
 
@@ -129,6 +131,16 @@ class GroupsFragment : Fragment() {
         }
     }
 
+    private fun observer(){
+        viewModel.saveGroup.observe(viewLifecycleOwner, Observer {
+            if (it){
+                toast(getString(R.string.update_data_sucess))
+            }else{
+                toast(getString(R.string.error_message))
+            }
+        })
+    }
+
     private fun deleteGroup(id: Int, nameGroup: String) {
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
         val binding: DialogDeleteBinding = DataBindingUtil.inflate(
@@ -151,6 +163,10 @@ class GroupsFragment : Fragment() {
             viewModel.list()
             dialog.dismiss()
         }
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

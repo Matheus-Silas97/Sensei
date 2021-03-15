@@ -3,6 +3,7 @@ package com.matheussilas97.sensei.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.ClassModel
@@ -30,6 +31,8 @@ class ClassAddActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener {
             addGroup()
         }
+
+        observer()
     }
 
     private fun addGroup() {
@@ -41,6 +44,16 @@ class ClassAddActivity : AppCompatActivity() {
             viewModel.saveClass(group)
             onBackPressed()
         }
+    }
+
+    private fun observer(){
+        viewModel.saveGroup.observe(this, Observer {
+            if (it){
+                toast(getString(R.string.add_group_sucess))
+            }else{
+                toast(getString(R.string.error_message))
+            }
+        })
     }
 
     private fun toast(msg: String) {

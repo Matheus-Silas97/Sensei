@@ -3,6 +3,7 @@ package com.matheussilas97.sensei.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.StudentsModel
@@ -42,6 +43,9 @@ class StudentsAddActivity : AppCompatActivity() {
         binding.editPhone.addTextChangedListener(MaskEditUtil.mask(binding.editPhone, "(##) #####-####"))
         binding.editStartDate.addTextChangedListener(MaskEditUtil.mask(binding.editStartDate, "##/##/####"))
         binding.editBirthDate.addTextChangedListener(MaskEditUtil.mask(binding.editBirthDate, "##/##/####"))
+
+          observer()
+
     }
 
     override fun onResume() {
@@ -79,9 +83,19 @@ class StudentsAddActivity : AppCompatActivity() {
         } else {
             val model = StudentsModel(0, name, grade, birthDate, phone, 0, dateStart, idGroup, gender)
             viewModel.saveStudent(model)
-            onBackPressed()
         }
 
+    }
+
+    private fun observer(){
+        viewModel.saveStudent.observe(this, Observer {
+            if (it){
+                toast(getString(R.string.add_student_sucess))
+                onBackPressed()
+            }else{
+                toast(getString(R.string.add_student_fail))
+            }
+        })
     }
 
     private fun toast(msg: String) {

@@ -70,4 +70,9 @@
     <string name="ranking_info">Ranking de asistencia de los estudiantes</string>
     <string name="empty_ranking">No hay estudiantes registrados</string>
     <string name="placing">Colocación</string>
+    <string name="add_student_fail">Error al agregar al alumno</string>
+    <string name="add_student_sucess">Estudiante agregado exitosamente</string>
+    <string name="update_data_sucess">Datos actualizados con éxito</string>
+    <string name="error_message">Se ha producido un error inesperado. Vuelve a intentarlo más tarde.</string>
+    <string name="add_group_sucess">Clase agregada con éxito</string>
 </resources>

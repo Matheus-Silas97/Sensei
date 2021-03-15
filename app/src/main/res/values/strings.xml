@@ -10,11 +10,11 @@
     <string name="language_portuguese" translatable="false">Idioma alterado com sucesso!</string>
     <string name="language_spanish" translatable="false">¡El idioma cambió correctamente!</string>
 
-    <string name="add_group">Adicionar grupo</string>
+    <string name="add_group">Adicionar turma</string>
     <string name="add_student">Adicionar aluno</string>
     <string name="edit_student">Editar aluno</string>
     <string name="edit_presence_number"><u>Editar quantidade de presenças</u></string>
-    <string name="edit_group">Editar grupo</string>
+    <string name="edit_group">Editar turma</string>
     <string name="change_language">Alterar idioma</string>
     <string name="change_name">Alterar nome</string>
 
@@ -41,7 +41,7 @@
     <string name="call_info">Presença confirmada</string>
 
     <string name="delete_student_message">Deseja excluir o aluno?</string>
-    <string name="delete_group_message">Deseja excluir o grupo</string>
+    <string name="delete_group_message">Deseja excluir a turma</string>
     <string name="delete_all">Deseja resetar tudo?</string>
 
     <string name="complete_name">Nome completo</string>
@@ -56,14 +56,14 @@
     <string name="groups_total">Total de turmas:</string>
     <string name="students_total">Total de alunos:</string>
 
-    <string name="empty_name_group">Preencha o campo nome do grupo</string>
+    <string name="empty_name_group">Preencha o campo nome da turma</string>
     <string name="empty_name">Preencha o campo nome completo</string>
     <string name="empty_birthday">Preencha o campo data de nascimento</string>
     <string name="empty_phone">Preencha o campo celular</string>
     <string name="empty_grade">Preencha o campo grau</string>
     <string name="empty_date_start">Preencha o campo data de início</string>
 
-    <string name="click_button_plus">Clique no botão de + para adicionar um novo grupo</string>
+    <string name="click_button_plus">Clique no botão de + para adicionar uma nova turma</string>
     <string name="click_button_plus_student">Clique no botão de + para adicionar um novo aluno</string>
     <string name="language_selected">Selecione um idioma</string>
     <string name="gender">Gênero</string>
@@ -85,5 +85,10 @@
     <string name="ranking_info">Ranking de quantidade de presenças dos alunos</string>
     <string name="empty_ranking">Sem alunos cadastrados</string>
     <string name="placing">Colocação</string>
+    <string name="add_student_fail">Erro ao adicionar estudante</string>
+    <string name="add_student_sucess">Estudante adicionado com sucesso</string>
+    <string name="update_data_sucess">Dados atualizados com sucesso</string>
+    <string name="error_message">Um erro inesperado aconteceu, tente novamente mais tarde</string>
+    <string name="add_group_sucess">Turma adicionada com sucesso</string>
 
 </resources>

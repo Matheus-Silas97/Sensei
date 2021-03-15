@@ -70,4 +70,9 @@
     <string name="ranking_info">Ranking of student attendance</string>
     <string name="empty_ranking">No students registered</string>
     <string name="placing">Placing</string>
+    <string name="add_student_fail">Error adding student</string>
+    <string name="add_student_sucess">Student successfully added</string>
+    <string name="update_data_sucess">Data updated successfully</string>
+    <string name="error_message">An unexpected error has occurred, please try again later</string>
+    <string name="add_group_sucess">Class added successfully</string>
 </resources>

@@ -3,6 +3,7 @@ package com.matheussilas97.sensei.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.StudentsModel
@@ -36,6 +37,7 @@ class StudentEditActivity : AppCompatActivity() {
         }
 
         setInfoFromStudent()
+        observer()
 
         binding.editPhone.addTextChangedListener(MaskEditUtil.mask(binding.editPhone, "(##) #####-####"))
         binding.editStartDate.addTextChangedListener(MaskEditUtil.mask(binding.editStartDate, "##/##/####"))
@@ -47,6 +49,13 @@ class StudentEditActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             idStudent = extras.getInt(Constants.STUDENT_ID)
+
+            val gender = viewModel.loadStudent(idStudent).gender
+            if(gender == Constants.MALE){
+                binding.radioMale.isChecked = true
+            }else{
+                binding.radioFemale.isChecked = true
+            }
 
             binding.editStudentName.setText(viewModel.loadStudent(idStudent).name)
             binding.editStartDate.setText(viewModel.loadStudent(idStudent).dateStart)
@@ -98,6 +107,17 @@ class StudentEditActivity : AppCompatActivity() {
             viewModel.saveStudent(model)
             onBackPressed()
         }
+    }
+
+    private fun observer(){
+        viewModel.saveStudent.observe(this, Observer {
+            if (it){
+                toast(getString(R.string.update_data_sucess))
+                onBackPressed()
+            }else{
+                toast(getString(R.string.error_message))
+            }
+        })
 
     }
 
