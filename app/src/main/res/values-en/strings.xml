@@ -67,7 +67,7 @@
     <string name="txt_total_mens">Total male gender:</string>
     <string name="txt_total_womens">Total female gender:</string>
     <string name="ranking">Ranking</string>
-    <string name="ranking_info">Ranking of student attendance</string>
+    <string name="ranking_info">Ranking by number student attendance</string>
     <string name="empty_ranking">No students registered</string>
     <string name="placing">Placing</string>
     <string name="add_student_fail">Error adding student</string>

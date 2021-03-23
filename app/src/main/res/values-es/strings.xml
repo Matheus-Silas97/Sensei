@@ -67,7 +67,7 @@
     <string name="txt_total_mens">Sexo masculino total:</string>
     <string name="txt_total_womens">Sexo femenino total:</string>
     <string name="ranking">Clasificación</string>
-    <string name="ranking_info">Ranking de asistencia de los estudiantes</string>
+    <string name="ranking_info">Clasificación por número de asistencia de estudiantes</string>
     <string name="empty_ranking">No hay estudiantes registrados</string>
     <string name="placing">Colocación</string>
     <string name="add_student_fail">Error al agregar al alumno</string>
