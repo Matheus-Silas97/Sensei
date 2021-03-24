@@ -75,4 +75,5 @@
     <string name="update_data_sucess">Data updated successfully</string>
     <string name="error_message">An unexpected error has occurred, please try again later</string>
     <string name="add_group_sucess">Class added successfully</string>
+    <string name="presence2">Attendance:</string>
 </resources>

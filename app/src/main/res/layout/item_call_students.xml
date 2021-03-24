@@ -45,7 +45,9 @@
                 android:id="@+id/txt_presences"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:text="@string/presence2"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/name_students" />
 
@@ -56,7 +58,8 @@
                 android:layout_marginStart="3dp"
                 android:textSize="18sp"
                 app:layout_constraintStart_toEndOf="@id/txt_presences"
-                app:layout_constraintTop_toBottomOf="@id/name_students" />
+                app:layout_constraintTop_toTopOf="@id/txt_presences"
+                app:layout_constraintBottom_toBottomOf="@id/txt_presences"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
