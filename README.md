@@ -8,6 +8,8 @@ Aplicativo de controle de frequência de estudantes voltado para esportes de art
 
 Aplicativo armazena os dados offline para fácil consulta.
 
+Aplicativo disponível nos idiomas: Português, Inglês e Espanhol. 
+
 ## Funcionalidades
 <p>-Controle de presença (chamada)</p>
 <p>-Gestão de turmas</p>
@@ -17,4 +19,4 @@ Aplicativo armazena os dados offline para fácil consulta.
 <p>-Ranking de alunos pela quantidade de presença.</p>  
 
 
-Aplicativo feito utilizando: ViewModel, LiveData, Data Binding e Room
+Aplicativo feito utilizando: Arquitetura MVVM, LiveData, Data Binding e Room
