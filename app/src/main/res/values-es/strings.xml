@@ -76,4 +76,5 @@
     <string name="error_message">Se ha producido un error inesperado. Vuelve a intentarlo más tarde.</string>
     <string name="add_group_sucess">Clase agregada con éxito</string>
     <string name="presence2">Asistencia:</string>
+    <string name="edit">Editar</string>
 </resources>

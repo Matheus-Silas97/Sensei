@@ -91,5 +91,6 @@
     <string name="error_message">Um erro inesperado aconteceu, tente novamente mais tarde</string>
     <string name="add_group_sucess">Turma adicionada com sucesso</string>
     <string name="presence2">Presenças:</string>
+    <string name="edit">Editar</string>
 
 </resources>
