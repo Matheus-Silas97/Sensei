@@ -77,4 +77,18 @@
     <string name="add_group_sucess">Class added successfully</string>
     <string name="presence2">Attendance:</string>
     <string name="edit">Edit</string>
+    <string name="empty_weight">Enter a value for weight</string>
+    <string name="empty_height">Enter a value for height</string>
+    <string name="light_thinness">Thinness</string>
+    <string name="healthy">Healthy</string>
+    <string name="overweight">Overweight</string>
+    <string name="obesity_Grade_1">Obesity Grade 1</string>
+    <string name="obesity_Grade_2">Obesity Grade 2</string>
+    <string name="imc">"BMI "</string>
+    <string name="calculate">Calculate</string>
+    <string name="obesity_Grade_3">Obesity Grade 3</string>
+    <string name="digit_height">Enter your height</string>
+    <string name="digit_weight">Enter your weight</string>
+    <string name="information">Information</string>
+    <string name="imc_info">The BMI or Body Mass Index is an international measure used to calculate whether a person is at the ideal weight.</string>
 </resources>

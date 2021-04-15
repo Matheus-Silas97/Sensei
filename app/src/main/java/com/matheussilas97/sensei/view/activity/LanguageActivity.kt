@@ -18,13 +18,14 @@ class LanguageActivity : AppCompatActivity() {
         binding = ActivityLanguageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.toolbar.setTitle(R.string.change_language)
+
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 
         binding.btnChangeLanguage.setOnClickListener {
             changeLanguage()
-
         }
     }
 

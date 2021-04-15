@@ -78,7 +78,7 @@
     <string name="edit_note">Editar anotação</string>
     <string name="delete_note">Deletar anotação?</string>
     <string name="note">Anotação</string>
-    <string name="empty_note">Preencha o campo nota</string>
+    <string name="empty_note">Preencha o campo anotação</string>
     <string name="txt_total_mens">Total sexo masculino:</string>
     <string name="txt_total_womens">Total sexo feminino:</string>
     <string name="ranking">Ranking</string>
@@ -92,5 +92,20 @@
     <string name="add_group_sucess">Turma adicionada com sucesso</string>
     <string name="presence2">Presenças:</string>
     <string name="edit">Editar</string>
+    <string name="empty_weight">Insira um valor para peso</string>
+    <string name="empty_height">Insira um valor para altura</string>
+    <string name="light_thinness">Magreza</string>
+    <string name="healthy">Saudável</string>
+    <string name="overweight">Sobrepeso</string>
+    <string name="obesity_Grade_1">Obesidade Grau 1</string>
+    <string name="obesity_Grade_2">Obesidade Grau 2</string>
+    <string name="imc">IMC</string>
+    <string name="calculate">Calcular</string>
+    <string name="obesity_Grade_3">Obesidade Grau 3</string>
+    <string name="digit_height">Digite sua altura</string>
+    <string name="digit_weight">Digite seu peso</string>
+    <string name="information">Informações</string>
+    <string name="imc_info">O IMC ou  Índice de Massa Corporal é uma medida internacional usada para calcular se uma pessoa está no peso ideal.</string>
+    <string name="ok" translatable="false">Ok</string>
 
 </resources>

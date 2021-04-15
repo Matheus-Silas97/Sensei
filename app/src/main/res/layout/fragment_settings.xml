@@ -38,6 +38,14 @@
             android:text="@string/notes" />
 
         <Button
+            android:id="@+id/btn_imc"
+            style="@style/button_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/imc" />
+
+        <Button
             android:id="@+id/btn_reports"
             style="@style/button_theme"
             android:layout_width="match_parent"

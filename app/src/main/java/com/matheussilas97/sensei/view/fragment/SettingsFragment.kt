@@ -12,10 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.FragmentSettingsBinding
-import com.matheussilas97.sensei.view.activity.LanguageActivity
-import com.matheussilas97.sensei.view.activity.NotesActivity
-import com.matheussilas97.sensei.view.activity.RankingActivity
-import com.matheussilas97.sensei.view.activity.ReportsActivity
+import com.matheussilas97.sensei.view.activity.*
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
 
 private const val ARG_PARAM1 = "param1"
@@ -48,6 +45,10 @@ class SettingsFragment : Fragment() {
 
         binding.btnNotes.setOnClickListener {
             startActivity(Intent(context, NotesActivity::class.java))
+        }
+
+        binding.btnImc.setOnClickListener {
+            startActivity(Intent(context, ImcActivity::class.java))
         }
 
         binding.btnRanking.setOnClickListener {
