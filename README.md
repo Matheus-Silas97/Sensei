@@ -14,7 +14,8 @@ Aplicativo disponível nos idiomas: Português, Inglês e Espanhol.
 <p>-Controle de presença (chamada)</p>
 <p>-Gestão de turmas</p>
 <p>-Gestão de alunos</p>
-<p>-Anotações </p>
+<p>-Anotações</p>
+<p>-IMC</p>
 <p>-Relatórios</p>
 <p>-Ranking de alunos pela quantidade de presença.</p>  
 
