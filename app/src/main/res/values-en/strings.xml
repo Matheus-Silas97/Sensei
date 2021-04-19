@@ -67,7 +67,7 @@
     <string name="txt_total_mens">Total male gender:</string>
     <string name="txt_total_womens">Total female gender:</string>
     <string name="ranking">Ranking</string>
-    <string name="ranking_info">Ranking by number student attendance</string>
+    <string name="ranking_info">Ranking by number student attendance.</string>
     <string name="empty_ranking">No students registered</string>
     <string name="placing">Placing</string>
     <string name="add_student_fail">Error adding student</string>
@@ -87,8 +87,9 @@
     <string name="imc">"BMI "</string>
     <string name="calculate">Calculate</string>
     <string name="obesity_Grade_3">Obesity Grade 3</string>
-    <string name="digit_height">Enter your height</string>
-    <string name="digit_weight">Enter your weight</string>
+    <string name="digit_height">Enter your height (meters)</string>
+    <string name="digit_weight">Enter your weight (kg)</string>
     <string name="information">Information</string>
     <string name="imc_info">The BMI or Body Mass Index is an international measure used to calculate whether a person is at the ideal weight.</string>
+    <string name="notes_info">Save and manage your notes.</string>
 </resources>

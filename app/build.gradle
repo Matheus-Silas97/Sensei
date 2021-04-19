@@ -8,12 +8,18 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+
     defaultConfig {
         applicationId "com.matheussilas97.sensei"
         minSdkVersion 27
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

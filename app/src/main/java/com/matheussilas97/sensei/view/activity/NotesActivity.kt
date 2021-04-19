@@ -1,11 +1,13 @@
 package com.matheussilas97.sensei.view.activity
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -31,16 +33,9 @@ class NotesActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
 
-        binding.toolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
+        binding.toolbar.inflateMenu(R.menu.menu_info)
 
-        binding.toolbar.inflateMenu(R.menu.menu_add)
-
-        binding.toolbar.setOnMenuItemClickListener {
-            return@setOnMenuItemClickListener optionsToolbar(it)
-        }
-
+        click()
         notesList()
     }
 
@@ -51,14 +46,38 @@ class NotesActivity : AppCompatActivity() {
 
     private fun optionsToolbar(it: MenuItem): Boolean {
         when (it.itemId) {
-            R.id.ic_add -> {
-                addNote()
+            R.id.ic_info -> {
+                info()
                 return true
             }
             else -> {
                 return false
             }
         }
+    }
+
+    private fun click() {
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+        binding.floatingActionButton.setOnClickListener {
+            addNote()
+        }
+
+        binding.toolbar.setOnMenuItemClickListener {
+            return@setOnMenuItemClickListener optionsToolbar(it)
+        }
+    }
+
+    private fun info(){
+        val alertDialog = android.app.AlertDialog.Builder(this).create()
+        alertDialog.setTitle(R.string.notes)
+        alertDialog.setMessage(getString(R.string.notes_info))
+        alertDialog.setButton(
+            AlertDialog.BUTTON_NEUTRAL, getString(R.string.ok),
+            DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+        alertDialog.show()
     }
 
     private fun notesList() {

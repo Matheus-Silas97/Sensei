@@ -1,9 +1,9 @@
 package com.matheussilas97.sensei.view.activity
 
-import android.content.Intent
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.matheussilas97.sensei.R
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         val naviController = findNavController(R.id.nav_host)
 
         binding.bottomNavigationView.setupWithNavController(naviController)
+
 
     }
 

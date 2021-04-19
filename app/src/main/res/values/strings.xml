@@ -82,7 +82,7 @@
     <string name="txt_total_mens">Total sexo masculino:</string>
     <string name="txt_total_womens">Total sexo feminino:</string>
     <string name="ranking">Ranking</string>
-    <string name="ranking_info">Ranking por quantidade de presenças dos alunos</string>
+    <string name="ranking_info">Ranking por quantidade de presenças dos alunos.</string>
     <string name="empty_ranking">Sem alunos cadastrados</string>
     <string name="placing">Colocação</string>
     <string name="add_student_fail">Erro ao adicionar estudante</string>
@@ -102,10 +102,11 @@
     <string name="imc">IMC</string>
     <string name="calculate">Calcular</string>
     <string name="obesity_Grade_3">Obesidade Grau 3</string>
-    <string name="digit_height">Digite sua altura</string>
-    <string name="digit_weight">Digite seu peso</string>
+    <string name="digit_height">Digite sua altura (metros)</string>
+    <string name="digit_weight">Digite seu peso (kg)</string>
     <string name="information">Informações</string>
     <string name="imc_info">O IMC ou  Índice de Massa Corporal é uma medida internacional usada para calcular se uma pessoa está no peso ideal.</string>
     <string name="ok" translatable="false">Ok</string>
+    <string name="notes_info">Salve e gerencie suas anotações.</string>
 
 </resources>

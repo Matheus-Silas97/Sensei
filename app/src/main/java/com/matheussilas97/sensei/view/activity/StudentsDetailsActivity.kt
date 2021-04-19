@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -96,7 +97,13 @@ class StudentsDetailsActivity : AppCompatActivity() {
             binding.dateStart.text =
                 "$dateStartDetails ${student.dateStart}"
             binding.grade.text = student.grade
-            binding.age.text = "$ageDetails ${viewModel.calculateAge(birthDate)}"
+
+            try {
+                binding.age.text = "$ageDetails ${viewModel.calculateAge(birthDate)}"
+            }catch (e: Exception){
+                binding.age.visibility = View.GONE
+            }
+
             binding.gender.text = "${getString(R.string.gender)}: $gender"
             binding.phone.text = student.phone
             binding.presence.text = student.presence.toString()
