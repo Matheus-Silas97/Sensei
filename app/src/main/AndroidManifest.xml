@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sensei">
-        <activity android:name=".view.activity.ImcActivity"></activity>
+        <activity android:name=".view.activity.ImcActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activity.RankingActivity"
             android:screenOrientation="portrait" />
