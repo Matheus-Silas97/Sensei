@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,6 +32,12 @@ class StudentActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[StudentsViewModel::class.java]
 
+        onClick()
+        takeValuesFromId()
+        buildStudentList()
+    }
+
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -42,9 +47,6 @@ class StudentActivity : AppCompatActivity() {
             intent.putExtra(Constants.GROUP_ID, idGroup)
             startActivity(intent)
         }
-
-        takeValuesFromId()
-        buildStudentList()
     }
 
     override fun onResume() {

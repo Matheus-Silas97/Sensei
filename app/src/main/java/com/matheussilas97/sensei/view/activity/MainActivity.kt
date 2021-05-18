@@ -8,11 +8,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityMainBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.util.SharedPreferences
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActvity() {
 
     private lateinit var binding: ActivityMainBinding
 

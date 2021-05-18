@@ -6,24 +6,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityStudentsDetailsBinding
-import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.DialogPresenceNumberBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.viewmodel.StudentsViewModel
 import kotlin.properties.Delegates
 
 
-class StudentsDetailsActivity : AppCompatActivity() {
+class StudentsDetailsActivity : BaseActvity() {
 
     private lateinit var binding: ActivityStudentsDetailsBinding
-
     private lateinit var viewModel: StudentsViewModel
 
     private var idStudent by Delegates.notNull<Int>()
@@ -37,6 +33,11 @@ class StudentsDetailsActivity : AppCompatActivity() {
 
         binding.toolbar.inflateMenu(R.menu.menu_edit)
 
+        onClick()
+        setInfoFromStudent()
+    }
+
+    private fun onClick() {
         binding.toolbar.setOnMenuItemClickListener {
             return@setOnMenuItemClickListener menuToolbar(it)
         }
@@ -52,8 +53,6 @@ class StudentsDetailsActivity : AppCompatActivity() {
         binding.editPresence.setOnClickListener {
             editPresenceNumber()
         }
-
-        setInfoFromStudent()
     }
 
     override fun onResume() {
@@ -132,7 +131,7 @@ class StudentsDetailsActivity : AppCompatActivity() {
                 idStudent
             )
             setInfoFromStudent()
-            Toast.makeText(this, R.string.amount_change_sucess, Toast.LENGTH_SHORT).show()
+            toast(getString( R.string.amount_change_sucess))
             dialog.dismiss()
         }
 

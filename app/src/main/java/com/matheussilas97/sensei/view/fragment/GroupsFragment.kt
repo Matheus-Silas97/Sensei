@@ -17,6 +17,7 @@ import com.matheussilas97.sensei.database.model.ClassModel
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.DialogEditGroupBinding
 import com.matheussilas97.sensei.databinding.FragmentGroupsBinding
+import com.matheussilas97.sensei.util.BaseFragment
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.view.activity.ClassAddActivity
 import com.matheussilas97.sensei.view.activity.StudentActivity
@@ -26,7 +27,7 @@ import com.matheussilas97.sensei.viewmodel.GroupsViewModel
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class GroupsFragment : Fragment() {
+class GroupsFragment : BaseFragment() {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -58,13 +59,16 @@ class GroupsFragment : Fragment() {
 
         viewModel.list()
 
-        binding.floatingActionButton.setOnClickListener {
-            startActivity(Intent(context, ClassAddActivity::class.java))
-        }
-
+        onClick()
         buildList()
         observer()
 
+    }
+
+    private fun onClick() {
+        binding.floatingActionButton.setOnClickListener {
+            startActivity(Intent(context, ClassAddActivity::class.java))
+        }
     }
 
     override fun onResume() {
@@ -84,10 +88,7 @@ class GroupsFragment : Fragment() {
 
                 adapter.addOnItemClickListener(object : ClassAdapter.OnItemClickListener {
                     override fun onClick(id: Int, nameGroup: String) {
-                        val intent = Intent(context, StudentActivity::class.java)
-                        intent.putExtra(Constants.GROUP_NAME, nameGroup)
-                        intent.putExtra(Constants.GROUP_ID, id)
-                        startActivity(intent)
+                        goToStudentsActivity(nameGroup, id)
                     }
 
                     override fun onDelete(id: Int, nameGroup: String) {
@@ -108,7 +109,14 @@ class GroupsFragment : Fragment() {
 
     }
 
-    private fun editGroup(id:Int, nameGroup: String){
+    private fun goToStudentsActivity(nameGroup: String, id: Int) {
+        val intent = Intent(context, StudentActivity::class.java)
+        intent.putExtra(Constants.GROUP_NAME, nameGroup)
+        intent.putExtra(Constants.GROUP_ID, id)
+        startActivity(intent)
+    }
+
+    private fun editGroup(id: Int, nameGroup: String) {
         val builder = androidx.appcompat.app.AlertDialog.Builder(requireContext())
         val binding: DialogEditGroupBinding = DataBindingUtil.inflate(
             LayoutInflater.from(context), R.layout.dialog_edit_group, null, false
@@ -131,12 +139,12 @@ class GroupsFragment : Fragment() {
         }
     }
 
-    private fun observer(){
+    private fun observer() {
         viewModel.saveGroup.observe(viewLifecycleOwner, Observer {
-            if (it){
-                toast(getString(R.string.update_data_sucess))
-            }else{
-                toast(getString(R.string.error_message))
+            if (it) {
+                showToast(getString(R.string.update_data_sucess))
+            } else {
+                showToast(getString(R.string.error_message))
             }
         })
     }
@@ -163,10 +171,6 @@ class GroupsFragment : Fragment() {
             viewModel.list()
             dialog.dismiss()
         }
-    }
-
-    private fun toast(msg: String) {
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
     companion object {

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -18,9 +17,10 @@ import com.matheussilas97.sensei.database.model.NotesModel
 import com.matheussilas97.sensei.databinding.ActivityNotesBinding
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.DialogNoteAddBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.viewmodel.NotesViewModel
 
-class NotesActivity : AppCompatActivity() {
+class NotesActivity : BaseActvity() {
 
     private lateinit var binding: ActivityNotesBinding
 
@@ -35,7 +35,7 @@ class NotesActivity : AppCompatActivity() {
 
         binding.toolbar.inflateMenu(R.menu.menu_info)
 
-        click()
+        onClick()
         notesList()
     }
 
@@ -56,7 +56,7 @@ class NotesActivity : AppCompatActivity() {
         }
     }
 
-    private fun click() {
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -128,7 +128,7 @@ class NotesActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val note = binding.editNote.text.toString()
             if (note.isNullOrEmpty()) {
-                Toast.makeText(this, R.string.empty_note, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.empty_note))
             } else {
                 viewModel.saveNote(NotesModel(0, note))
                 viewModel.listNotes()
@@ -157,7 +157,7 @@ class NotesActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             val newNote = binding.editNote.text.toString()
             if (newNote.isNullOrEmpty()) {
-                Toast.makeText(this, R.string.empty_note, Toast.LENGTH_SHORT).show()
+                toast(getString(R.string.empty_note))
             } else {
                 viewModel.saveNote(NotesModel(id, newNote))
                 viewModel.listNotes()

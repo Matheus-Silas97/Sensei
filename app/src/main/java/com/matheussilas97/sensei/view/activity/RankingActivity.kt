@@ -29,7 +29,7 @@ class RankingActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[SettingsViewModel::class.java]
 
-        click()
+        onClick()
         listRanking()
         viewModel.ranking()
 
@@ -40,7 +40,7 @@ class RankingActivity : AppCompatActivity() {
         viewModel.ranking()
     }
 
-    private fun click(){
+    private fun onClick(){
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }

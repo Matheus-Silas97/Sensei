@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.FragmentSettingsBinding
+import com.matheussilas97.sensei.util.BaseFragment
 import com.matheussilas97.sensei.view.activity.*
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
 
@@ -19,7 +20,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : BaseFragment() {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -43,6 +44,12 @@ class SettingsFragment : Fragment() {
 
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
 
+        onClick()
+
+        return binding.root
+    }
+
+    private fun onClick() {
         binding.btnNotes.setOnClickListener {
             startActivity(Intent(context, NotesActivity::class.java))
         }
@@ -66,8 +73,6 @@ class SettingsFragment : Fragment() {
         binding.btnResetAll.setOnClickListener {
             resetAll()
         }
-
-        return binding.root
     }
 
     private fun resetAll() {

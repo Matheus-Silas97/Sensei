@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.Toast
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityLanguageBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.util.SharedPreferences
 
-class LanguageActivity : AppCompatActivity() {
+class LanguageActivity : BaseActvity() {
 
     private lateinit var binding: ActivityLanguageBinding
 
@@ -20,6 +21,10 @@ class LanguageActivity : AppCompatActivity() {
 
         binding.toolbar.setTitle(R.string.change_language)
 
+        onClick()
+    }
+
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -35,21 +40,21 @@ class LanguageActivity : AppCompatActivity() {
                 SharedPreferences.getInstance(this)
                     .saveString(Constants.LANGUAGE, Constants.SPANISH)
                 toast(getString(R.string.language_spanish))
-                startActivity(Intent(this, MainActivity::class.java))
+                getNextActivity(MainActivity::class.java)
                 finish()
             }
             binding.radioUsa.isChecked -> {
                 SharedPreferences.getInstance(this)
                     .saveString(Constants.LANGUAGE, Constants.ENGLISH)
                 toast(getString(R.string.language_english))
-                startActivity(Intent(this, MainActivity::class.java))
+                getNextActivity(MainActivity::class.java)
                 finish()
             }
             binding.radioBrazil.isChecked -> {
                 SharedPreferences.getInstance(this)
                     .saveString(Constants.LANGUAGE, Constants.PORTUGUESE)
                 toast(getString(R.string.language_portuguese))
-                startActivity(Intent(this, MainActivity::class.java))
+                getNextActivity(MainActivity::class.java)
                 finish()
             }
             else -> {
@@ -58,7 +63,4 @@ class LanguageActivity : AppCompatActivity() {
         }
     }
 
-    private fun toast(msg: String){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
 }

@@ -8,15 +8,15 @@ import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.StudentsModel
 import com.matheussilas97.sensei.databinding.ActivityStudentsAddBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.util.MaskEditUtil
 import com.matheussilas97.sensei.viewmodel.StudentsViewModel
 import kotlin.properties.Delegates
 
-class StudentsAddActivity : AppCompatActivity() {
+class StudentsAddActivity : BaseActvity() {
 
     private lateinit var binding: ActivityStudentsAddBinding
-
     private lateinit var viewModel: StudentsViewModel
 
     private var idGroup by Delegates.notNull<Int>()
@@ -25,7 +25,6 @@ class StudentsAddActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentsAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         viewModel = ViewModelProvider(this)[StudentsViewModel::class.java]
 
         val extras = intent.extras
@@ -36,16 +35,37 @@ class StudentsAddActivity : AppCompatActivity() {
             }
         }
 
+        onClick()
+        masks()
+        observer()
+
+    }
+
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
 
-        binding.editPhone.addTextChangedListener(MaskEditUtil.mask(binding.editPhone, "(##) #####-####"))
-        binding.editStartDate.addTextChangedListener(MaskEditUtil.mask(binding.editStartDate, "##/##/####"))
-        binding.editBirthDate.addTextChangedListener(MaskEditUtil.mask(binding.editBirthDate, "##/##/####"))
-
-          observer()
-
+    private fun masks() {
+        binding.editPhone.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editPhone,
+                "(##) #####-####"
+            )
+        )
+        binding.editStartDate.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editStartDate,
+                "##/##/####"
+            )
+        )
+        binding.editBirthDate.addTextChangedListener(
+            MaskEditUtil.mask(
+                binding.editBirthDate,
+                "##/##/####"
+            )
+        )
     }
 
     override fun onResume() {
@@ -68,20 +88,12 @@ class StudentsAddActivity : AppCompatActivity() {
                 gender = Constants.FEMALE
             }
 
-        if (name.isEmpty()) {
-            toast(getString(R.string.empty_name))
-        }else if (gender.isNullOrEmpty()){
-            toast(getString(R.string.empty_gender))
-        } else if (birthDate.isEmpty()) {
-            toast(getString(R.string.empty_birthday))
-        } else if (grade.isEmpty()) {
-            toast(getString(R.string.empty_grade))
-        } else if (phone.isEmpty()) {
-            toast(getString(R.string.empty_phone))
-        } else if (dateStart.isEmpty()) {
-            toast(getString(R.string.empty_date_start))
+        val model = StudentsModel(0, name, grade, birthDate, phone, 0, dateStart, idGroup, gender)
+        if (!viewModel.validateAddStudent(model, this)) {
+          viewModel.addStudentsStatus.observe(this, Observer {
+              toast(it)
+          })
         } else {
-            val model = StudentsModel(0, name, grade, birthDate, phone, 0, dateStart, idGroup, gender)
             viewModel.saveStudent(model)
         }
 
@@ -98,7 +110,4 @@ class StudentsAddActivity : AppCompatActivity() {
         })
     }
 
-    private fun toast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
 }

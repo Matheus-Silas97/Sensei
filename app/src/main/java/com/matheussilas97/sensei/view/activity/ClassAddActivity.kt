@@ -8,13 +8,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.ClassModel
 import com.matheussilas97.sensei.databinding.ActivityClassAddBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.viewmodel.GroupsViewModel
 
-class ClassAddActivity : AppCompatActivity() {
-
-    private lateinit var viewModel: GroupsViewModel
+class ClassAddActivity : BaseActvity() {
 
     private lateinit var binding: ActivityClassAddBinding
+    private lateinit var viewModel: GroupsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +24,12 @@ class ClassAddActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[GroupsViewModel::class.java]
 
+        onClick()
+        observer()
+
+    }
+
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -31,14 +37,14 @@ class ClassAddActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener {
             addGroup()
         }
-
-        observer()
     }
 
     private fun addGroup() {
         val editGroupName = binding.editGroupName.text.toString()
-        if (editGroupName.isEmpty()) {
-            toast(getString(R.string.empty_name_group))
+        if (!viewModel.validadeAddClass(editGroupName, this)) {
+            viewModel.addClassErro.observe(this, Observer {
+                toast(it)
+            })
         } else {
             val group = ClassModel(0, editGroupName)
             viewModel.saveClass(group)
@@ -46,18 +52,13 @@ class ClassAddActivity : AppCompatActivity() {
         }
     }
 
-    private fun observer(){
+    private fun observer() {
         viewModel.saveGroup.observe(this, Observer {
-            if (it){
+            if (it) {
                 toast(getString(R.string.add_group_sucess))
-            }else{
+            } else {
                 toast(getString(R.string.error_message))
             }
         })
     }
-
-    private fun toast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
-
 }

@@ -10,11 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.ActivityImcBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
 import java.text.DecimalFormat
 
 
-class ImcActivity : AppCompatActivity() {
+class ImcActivity : BaseActvity() {
 
     private lateinit var binding: ActivityImcBinding
     private lateinit var viewModel: SettingsViewModel
@@ -80,18 +81,14 @@ class ImcActivity : AppCompatActivity() {
         val height = binding.editHeight.text.toString()
         val weight = binding.editWeight.text.toString()
 
-        if (height.isEmpty()) {
-            toast(getString(R.string.empty_height))
-        } else if (weight.isEmpty()) {
-            toast(getString(R.string.empty_weight))
+        if (!viewModel.validadeImc(height, weight, this)) {
+            viewModel.validadeImcStatus.observe(this, Observer {
+                toast(it)
+            })
         } else {
             binding.textInfoImc.text =
                 viewModel.calculateImc(height.toFloat(), weight.toFloat(), this)
         }
     }
 
-
-    private fun toast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }
 }

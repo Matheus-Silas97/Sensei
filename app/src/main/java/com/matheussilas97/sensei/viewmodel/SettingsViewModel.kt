@@ -21,6 +21,8 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
 
     val mValueImc = MutableLiveData<Float>()
 
+    val validadeImcStatus = MutableLiveData<String>()
+
     fun deleteAll() {
         mClassRepository.deleteAll()
         mStudentRepository.deleteAllStudents()
@@ -57,6 +59,19 @@ class SettingsViewModel(application: Application) : AndroidViewModel(application
         }
 
         return value
+    }
+
+    fun validadeImc(height: String, weight: String, context: Context): Boolean {
+        return if (height.isEmpty()) {
+            validadeImcStatus.value = context.getString(R.string.empty_height)
+            false
+        } else if (weight.isEmpty()) {
+            validadeImcStatus.value = context.getString(R.string.empty_weight)
+            false
+        } else {
+            true
+        }
+
     }
 
 }

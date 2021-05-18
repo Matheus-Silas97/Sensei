@@ -1,9 +1,11 @@
 package com.matheussilas97.sensei.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.ClassModel
 import com.matheussilas97.sensei.database.repository.ClassRepository
 
@@ -13,6 +15,7 @@ class GroupsViewModel(application: Application) : AndroidViewModel(application) 
 
     private var mSaveItem = MutableLiveData<Boolean>()
     val saveGroup: LiveData<Boolean> = mSaveItem
+    val addClassErro = MutableLiveData<String>()
 
     private val mGroupList = MutableLiveData<List<ClassModel>>()
     val groupList: LiveData<List<ClassModel>> = mGroupList
@@ -50,5 +53,14 @@ class GroupsViewModel(application: Application) : AndroidViewModel(application) 
     fun totalWomens(gender: String): Int = mClassRepository.totalWomens(gender)
 
     fun totalMens(gender: String): Int = mClassRepository.totalMens(gender)
+
+    fun validadeAddClass(nameClass: String, context: Context): Boolean {
+        return if (nameClass.isEmpty()) {
+            addClassErro.value = context.getString(R.string.empty_name_group)
+            false
+        }else{
+            true
+        }
+    }
 
 }

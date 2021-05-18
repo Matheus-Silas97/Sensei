@@ -1,9 +1,11 @@
 package com.matheussilas97.sensei.viewmodel
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.database.model.StudentsModel
 import com.matheussilas97.sensei.database.repository.StudentsRepository
 import java.text.SimpleDateFormat
@@ -21,6 +23,8 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
 
     private val mStudentListFromGroup = MutableLiveData<List<StudentsModel>>()
     val studentListFromGroup: LiveData<List<StudentsModel>> = mStudentListFromGroup
+
+    val addStudentsStatus = MutableLiveData<String>()
 
     fun list() {
         mStudentList.value = mStudentRepository.listStudents()
@@ -47,7 +51,31 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
         } else {
             mSaveStudent.value = mStudentRepository.updateStudents(student)
         }
+    }
 
+
+    fun validateAddStudent(model: StudentsModel, context: Context): Boolean{
+       return if (model.name.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_name)
+           false
+       }else if (model.gender.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_gender)
+           false
+       }else if (model.birthDate.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_birthday)
+           false
+       }else if (model.grade.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_grade)
+           false
+       }else if (model.phone.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_phone)
+           false
+       }else if (model.dateStart.isEmpty()){
+           addStudentsStatus.value = context.getString(R.string.empty_date_start)
+           false
+       }else{
+           true
+       }
     }
 
   fun  updatePresenceAmount(amount: Int, id:Int ){
