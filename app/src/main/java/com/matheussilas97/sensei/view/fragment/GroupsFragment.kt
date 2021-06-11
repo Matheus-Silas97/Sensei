@@ -48,7 +48,6 @@ class GroupsFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentGroupsBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
@@ -79,9 +78,6 @@ class GroupsFragment : BaseFragment() {
     private fun buildList() {
         viewModel.groupList.observe(viewLifecycleOwner, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.textInfo.visibility = View.GONE
-                binding.recyclerClass.visibility = View.VISIBLE
-
                 val adapter = ClassAdapter(requireContext(), data)
                 binding.recyclerClass.layoutManager = LinearLayoutManager(context)
                 binding.recyclerClass.adapter = adapter
@@ -101,8 +97,11 @@ class GroupsFragment : BaseFragment() {
 
                 })
             } else {
-                binding.textInfo.visibility = View.VISIBLE
-                binding.recyclerClass.visibility = View.GONE
+                setNoResultAdapter(
+                    requireContext(),
+                    binding.recyclerClass,
+                    getString(R.string.click_button_plus)
+                )
             }
 
         })

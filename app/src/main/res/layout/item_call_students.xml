@@ -23,7 +23,7 @@
                 android:id="@+id/name_students"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toStartOf="@id/img_presence"
+                app:layout_constraintEnd_toStartOf="@id/img_remove_presence"
                 app:layout_constraintHorizontal_bias="0.0"
                 android:layout_marginEnd="15dp"
                 android:textSize="20sp"
@@ -39,6 +39,16 @@
                 android:src="@drawable/ic_plus"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/img_remove_presence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_minus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_presence"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

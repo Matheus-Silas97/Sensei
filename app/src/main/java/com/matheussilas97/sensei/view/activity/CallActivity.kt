@@ -59,23 +59,23 @@ class CallActivity : BaseActvity() {
     private fun callList() {
         viewModel.studentListFromGroup.observe(this, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.textInfo.visibility = View.GONE
-                binding.recyclerCall.visibility = View.VISIBLE
-
                 val adapter = CallListAdapter(this, data)
                 binding.recyclerCall.layoutManager = LinearLayoutManager(this)
                 binding.recyclerCall.adapter = adapter
 
                 adapter.addOnItemClickListener(object : CallListAdapter.OnItemClickListener {
-                    override fun onClick(id: Int) {
+                    override fun onClick(id: Int, position: Int) {
                         viewModel.updateListCall(id)
-                        viewModel.listFromGroup(idGroup)
                         toast(getString(R.string.call_info))
+                    }
+
+                    override fun onRemovePresence(id: Int, position: Int) {
+                        viewModel.removePresence(id)
+                        toast(getString(R.string.remove_presence))
                     }
                 })
             } else {
-                binding.textInfo.visibility = View.VISIBLE
-                binding.recyclerCall.visibility = View.GONE
+                setNoResultAdapter(this, binding.recyclerCall, getString(R.string.no_students))
             }
         })
     }

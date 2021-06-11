@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.adapter.CallClassAdapter
 import com.matheussilas97.sensei.databinding.FragmentHomeBinding
 import com.matheussilas97.sensei.util.BaseFragment
@@ -79,9 +80,7 @@ class HomeFragment : BaseFragment() {
     private fun listCall() {
         viewModel.groupList.observe(viewLifecycleOwner, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.recyclerCall.visibility = View.VISIBLE
                 binding.textInfoCall.visibility = View.VISIBLE
-                binding.textInfo.visibility = View.GONE
 
                 val adapter = CallClassAdapter(requireContext(), data)
                 binding.recyclerCall.layoutManager = LinearLayoutManager(context)
@@ -96,10 +95,13 @@ class HomeFragment : BaseFragment() {
                     }
 
                 })
-            }else{
-                binding.recyclerCall.visibility = View.GONE
+            } else {
                 binding.textInfoCall.visibility = View.GONE
-                binding.textInfo.visibility = View.VISIBLE
+                setNoResultAdapter(
+                    requireContext(),
+                    binding.recyclerCall,
+                    getString(R.string.no_groups)
+                )
             }
         })
     }

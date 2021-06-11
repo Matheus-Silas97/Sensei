@@ -16,6 +16,7 @@ class CallListAdapter(private val context: Context, private val list: List<Stude
         val layout = binding.layout
         val name = binding.nameStudents
         val presence = binding.imgPresence
+        val removePresence = binding.imgRemovePresence
         val presenceNumber = binding.numberPresence
 
     }
@@ -30,14 +31,26 @@ class CallListAdapter(private val context: Context, private val list: List<Stude
         holder.presenceNumber.text = list[position].presence.toString()
 
         holder.presence.setOnClickListener {
-            onItemClickLister?.onClick(list[position].id)
+            onItemClickLister?.onClick(list[position].id, position)
+            val total = holder.presenceNumber.text.toString().toInt() + 1
+            holder.presenceNumber.text = total.toString()
+
+        }
+
+        holder.removePresence.setOnClickListener {
+            if (holder.presenceNumber.text.toString().toInt() > 0) {
+                onItemClickLister?.onRemovePresence(list[position].id, position)
+                val total = holder.presenceNumber.text.toString().toInt() - 1
+                holder.presenceNumber.text = total.toString()
+            }
         }
     }
 
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickListener {
-        fun onClick(id: Int)
+        fun onClick(id: Int, position: Int)
+        fun onRemovePresence(id: Int, position: Int)
     }
 
     private var onItemClickLister: OnItemClickListener? = null

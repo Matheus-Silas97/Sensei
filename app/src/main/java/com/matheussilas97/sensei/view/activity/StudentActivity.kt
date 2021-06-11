@@ -13,11 +13,12 @@ import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.adapter.StudentsAdapter
 import com.matheussilas97.sensei.databinding.ActivityStudentBinding
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.util.Constants
 import com.matheussilas97.sensei.viewmodel.StudentsViewModel
 import kotlin.properties.Delegates
 
-class StudentActivity : AppCompatActivity() {
+class StudentActivity : BaseActvity() {
 
     private lateinit var binding: ActivityStudentBinding
 
@@ -72,9 +73,6 @@ class StudentActivity : AppCompatActivity() {
     private fun buildStudentList() {
         viewModel.studentListFromGroup.observe(this, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.textInfo.visibility = View.GONE
-                binding.recyclerStudents.visibility = View.VISIBLE
-
                 val adapter = StudentsAdapter(this, data)
                 binding.recyclerStudents.layoutManager = LinearLayoutManager(this)
                 binding.recyclerStudents.adapter = adapter
@@ -90,8 +88,7 @@ class StudentActivity : AppCompatActivity() {
                     }
                 })
             } else {
-                binding.textInfo.visibility = View.VISIBLE
-                binding.recyclerStudents.visibility = View.GONE
+                setNoResultAdapter(this, binding.recyclerStudents, getString(R.string.click_button_plus_student))
             }
         })
     }

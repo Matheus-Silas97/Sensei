@@ -70,7 +70,7 @@ class NotesActivity : BaseActvity() {
         }
     }
 
-    private fun info(){
+    private fun info() {
         val alertDialog = android.app.AlertDialog.Builder(this).create()
         alertDialog.setTitle(R.string.notes)
         alertDialog.setMessage(getString(R.string.notes_info))
@@ -83,9 +83,6 @@ class NotesActivity : BaseActvity() {
     private fun notesList() {
         viewModel.noteList.observe(this, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.recyclerNotes.visibility = View.VISIBLE
-                binding.textInfo.visibility = View.GONE
-
                 val adapter = NotesAdapter(this, data)
                 binding.recyclerNotes.layoutManager = LinearLayoutManager(this)
                 binding.recyclerNotes.adapter = adapter
@@ -101,8 +98,7 @@ class NotesActivity : BaseActvity() {
 
                 })
             } else {
-                binding.recyclerNotes.visibility = View.GONE
-                binding.textInfo.visibility = View.VISIBLE
+                setNoResultAdapter(this, binding.recyclerNotes, getString(R.string.empty_notes))
             }
 
         })

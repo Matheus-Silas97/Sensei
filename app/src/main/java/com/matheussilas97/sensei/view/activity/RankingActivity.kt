@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.adapter.RankingAdapter
 import com.matheussilas97.sensei.databinding.ActivityRankingBinding
+import com.matheussilas97.sensei.util.BaseActvity
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
 
-class RankingActivity : AppCompatActivity() {
+class RankingActivity : BaseActvity() {
 
     private lateinit var binding: ActivityRankingBinding
 
@@ -40,7 +41,7 @@ class RankingActivity : AppCompatActivity() {
         viewModel.ranking()
     }
 
-    private fun onClick(){
+    private fun onClick() {
         binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -74,12 +75,9 @@ class RankingActivity : AppCompatActivity() {
     }
 
 
-
     private fun listRanking() {
         viewModel.rankingList.observe(this, Observer { data ->
             if (!data.isNullOrEmpty()) {
-                binding.textInfoEmpty.visibility = View.GONE
-                binding.recyclerRanking.visibility = View.VISIBLE
                 binding.txtPlacing.visibility = View.VISIBLE
                 binding.txtPresence.visibility = View.VISIBLE
 
@@ -87,8 +85,7 @@ class RankingActivity : AppCompatActivity() {
                 binding.recyclerRanking.layoutManager = LinearLayoutManager(this)
                 binding.recyclerRanking.adapter = adapter
             } else {
-                binding.textInfoEmpty.visibility = View.VISIBLE
-                binding.recyclerRanking.visibility = View.GONE
+                setNoResultAdapter(this, binding.recyclerRanking, getString(R.string.empty_ranking))
                 binding.txtPlacing.visibility = View.GONE
                 binding.txtPresence.visibility = View.GONE
             }

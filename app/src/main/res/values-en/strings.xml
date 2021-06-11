@@ -92,4 +92,5 @@
     <string name="information">Information</string>
     <string name="imc_info">The BMI or Body Mass Index is an international measure used to calculate whether a person is at the ideal weight.</string>
     <string name="notes_info">Save and manage your notes.</string>
+    <string name="remove_presence">Presence removed</string>
 </resources>

@@ -108,5 +108,6 @@
     <string name="imc_info">O IMC ou  Índice de Massa Corporal é uma medida internacional usada para calcular se uma pessoa está no peso ideal.</string>
     <string name="ok" translatable="false">Ok</string>
     <string name="notes_info">Salve e gerencie suas anotações.</string>
+    <string name="remove_presence">Presença removida</string>
 
 </resources>
