@@ -21,7 +21,7 @@ class GroupsViewModel(application: Application) : AndroidViewModel(application) 
     val groupList: LiveData<List<ClassModel>> = mGroupList
 
     fun list() {
-        mGroupList.value = mClassRepository.listClass()
+        mGroupList.value = mClassRepository.listClass().sortedBy { it.className }
     }
 
     fun deleteClass(id: Int) {

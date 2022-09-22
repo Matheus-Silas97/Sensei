@@ -1,20 +1,24 @@
 package com.matheussilas97.sensei.view.fragment
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.pm.PackageInfoCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.matheussilas97.sensei.BuildConfig
 import com.matheussilas97.sensei.R
 import com.matheussilas97.sensei.databinding.DialogDeleteBinding
 import com.matheussilas97.sensei.databinding.FragmentSettingsBinding
 import com.matheussilas97.sensei.util.BaseFragment
 import com.matheussilas97.sensei.view.activity.*
 import com.matheussilas97.sensei.viewmodel.SettingsViewModel
+
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -44,6 +48,7 @@ class SettingsFragment : BaseFragment() {
 
         viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
 
+        versionName()
         onClick()
 
         return binding.root
@@ -96,6 +101,13 @@ class SettingsFragment : BaseFragment() {
             viewModel.deleteAll()
             Toast.makeText(context, R.string.delete_all_sucess, Toast.LENGTH_SHORT).show()
             dialog.dismiss()
+        }
+    }
+
+    private fun versionName() {
+        try {
+            binding.versionApp.text = BuildConfig.VERSION_NAME
+        } catch (e: java.lang.Exception) {
         }
     }
 

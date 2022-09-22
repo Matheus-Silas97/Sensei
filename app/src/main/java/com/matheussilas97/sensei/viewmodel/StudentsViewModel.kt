@@ -27,7 +27,7 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
     val addStudentsStatus = MutableLiveData<String>()
 
     fun list() {
-        mStudentList.value = mStudentRepository.listStudents()
+        mStudentList.value = mStudentRepository.listStudents().sortedBy { it.name }
     }
 
     fun listFromGroup(id: Int) {
@@ -54,45 +54,45 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
     }
 
 
-    fun validateAddStudent(model: StudentsModel, context: Context): Boolean{
-       return if (model.name.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_name)
-           false
-       }else if (model.gender.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_gender)
-           false
-       }else if (model.birthDate.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_birthday)
-           false
-       }else if (model.grade.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_grade)
-           false
-       }else if (model.phone.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_phone)
-           false
-       }else if (model.dateStart.isEmpty()){
-           addStudentsStatus.value = context.getString(R.string.empty_date_start)
-           false
-       }else{
-           true
-       }
+    fun validateAddStudent(model: StudentsModel, context: Context): Boolean {
+        return if (model.name.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_name)
+            false
+        } else if (model.gender.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_gender)
+            false
+        } else if (model.birthDate.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_birthday)
+            false
+        } else if (model.grade.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_grade)
+            false
+        } else if (model.phone.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_phone)
+            false
+        } else if (model.dateStart.isEmpty()) {
+            addStudentsStatus.value = context.getString(R.string.empty_date_start)
+            false
+        } else {
+            true
+        }
     }
 
-  fun  updatePresenceAmount(amount: Int, id:Int ){
-      val student = mStudentRepository.getLoadStudent(id)
+    fun updatePresenceAmount(amount: Int, id: Int) {
+        val student = mStudentRepository.getLoadStudent(id)
 
-      val updateStudent = StudentsModel(
-          student.id,
-          student.name,
-          student.grade,
-          student.birthDate,
-          student.phone,
-          amount,
-          student.dateStart,
-          student.classId,
-          student.gender
-      )
-      mStudentRepository.updateStudents(updateStudent)
+        val updateStudent = StudentsModel(
+            student.id,
+            student.name,
+            student.grade,
+            student.birthDate,
+            student.phone,
+            amount,
+            student.dateStart,
+            student.classId,
+            student.gender
+        )
+        mStudentRepository.updateStudents(updateStudent)
     }
 
     fun updateListCall(id: Int) {
@@ -114,7 +114,7 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
         mStudentRepository.updateStudents(updateStudent)
     }
 
-    fun removePresence(id: Int){
+    fun removePresence(id: Int) {
         val student = mStudentRepository.getLoadStudent(id)
 
         val presence = student.presence - 1

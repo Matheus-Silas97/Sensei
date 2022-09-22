@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
     buildToolsVersion "30.0.2"
 
     bundle {
@@ -17,9 +17,9 @@ android {
     defaultConfig {
         applicationId "com.matheussilas97.sensei"
         minSdkVersion 27
-        targetSdkVersion 30
-        versionCode 3
-        versionName "1.1.1"
+        targetSdkVersion 33
+        versionCode 6
+        versionName "1.1.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

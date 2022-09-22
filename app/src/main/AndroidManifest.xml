@@ -10,43 +10,57 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Sensei">
-        <activity android:name=".view.activity.ImcActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".view.activity.ImcActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.RankingActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.NotesActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.CallActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.StudentEditActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ReportsActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.StudentsAddActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.StudentsDetailsActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.ClassAddActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.LanguageActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.StudentActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.MainActivity"
+            android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.SplashActivity"
+            android:exported="false"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
