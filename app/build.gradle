@@ -18,8 +18,8 @@ android {
         applicationId "com.matheussilas97.sensei"
         minSdkVersion 27
         targetSdkVersion 33
-        versionCode 6
-        versionName "1.1.2"
+        versionCode 7
+        versionName "1.1.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
