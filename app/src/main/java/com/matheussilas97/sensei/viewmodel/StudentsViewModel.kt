@@ -31,7 +31,7 @@ class StudentsViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun listFromGroup(id: Int) {
-        mStudentListFromGroup.value = mStudentRepository.listFromGroup(id)
+        mStudentListFromGroup.value = mStudentRepository.listFromGroup(id).sortedBy { it.name }
     }
 
     fun deleteStudent(id: Int) {

@@ -106,7 +106,7 @@ class SettingsFragment : BaseFragment() {
 
     private fun versionName() {
         try {
-            binding.versionApp.text = BuildConfig.VERSION_NAME
+            binding.versionApp.text = "Versão: ${BuildConfig.VERSION_NAME}"
         } catch (e: java.lang.Exception) {
         }
     }
